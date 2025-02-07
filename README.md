@@ -23,3 +23,14 @@
 <!-- js実行の為に追加 -->
 	<script src="../../../keep_checked.js"></script>
 ```
+
+```html
+<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+<script>
+	document.querySelectorAll('a').forEach(link => {
+		if (link.hostname !== window.location.hostname) {
+			link.setAttribute('target', '_blank');
+		}
+	});
+</script>
+```

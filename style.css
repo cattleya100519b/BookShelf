@@ -1,0 +1,22 @@
+/* ライトモードのスタイル */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* ダークモードのスタイル */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    /* 追加のスタイルをここに追加 */
+    .container {
+        background-color: #333;
+    }
+
+    input[type="checkbox"] {
+        accent-color: white;
+    }
+}

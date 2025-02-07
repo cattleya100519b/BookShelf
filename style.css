@@ -4,6 +4,15 @@ body {
     color: black;
 }
 
+h2 {
+    margin-left: 20px;
+    border-bottom: 1px solid black;
+}
+
+h3 {
+    margin-left: 40px
+}
+
 /* ダークモードのスタイル */
 @media (prefers-color-scheme: dark) {
     body {
@@ -18,5 +27,9 @@ body {
 
     input[type="checkbox"] {
         accent-color: white;
+    }
+
+    h2 {
+        border-bottom: 1px solid white;
     }
 }

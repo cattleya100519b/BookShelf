@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>倉方フランス語講座_II_語形成</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a
+				href="https://www.trefle.press/product-page/%E5%80%89%E6%96%B9%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E8%AA%9E%E8%AC%9B%E5%BA%A7-ii-%E8%AA%9E%E5%BD%A2%E6%88%90">倉方フランス語講座
+				II 語形成</a></li>
+		<li>Purchase Date: 2024/10/08 (ジュンク堂藤沢)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li>
+			<p><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>序章</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1. 語の種類</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">2. 語形成一派生と複合</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">3. 接尾辞派生</label></li>
+				<li><input type="checkbox" id="checkbox4"><label for="checkbox4">4. 基語, 派生語, 語幹</label></li>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">5. 現用語彙の習得</label></li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">6. 接尾辞派生に関する留意点</label></li>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">7. 構成と表記</label></li>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">8. 『新綴り」について</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox9"><label for="checkbox9"></label><strong>第1章「人・物」を表す名詞を作る
+					(1)</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">§1 名詞から「人」を表す名詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox11"><label for="checkbox11">1. -iste (mf)</label></li>
+						<li><input type="checkbox" id="checkbox12"><label for="checkbox12">2. -ier (m) [-ière (f)]
+								{異形-er [-ère]}</label></li>
+						<li><input type="checkbox" id="checkbox13"><label for="checkbox13">3. -ien (m) [-ienne (f)]
+								{異形-yen [-yenne]}, -éen (m) [-éenne (1)]</label></li>
+						<li><input type="checkbox" id="checkbox14"><label for="checkbox14">4. -aire
+								(mf){異形-iaire}</label></li>
+						<li><input type="checkbox" id="checkbox15"><label for="checkbox15">5. -ard (m) [-arde
+								(1)]</label></li>
+						<li><input type="checkbox" id="checkbox16"><label for="checkbox16">6. -ain (m) [-aine (f)],
+								-aste (mf), -eron (m) [-eronne (f)], -isan (m) [-isane (f)], -on (m) [-onne (f)]</label>
+						</li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">§2 名詞から「物」を表す名詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox18"><label for="checkbox18">1.「木」を表す--ier (m)
+								{異形-er}</label></li>
+						<li><input type="checkbox" id="checkbox19"><label for="checkbox19">2. 「入れ物」を表す-ier (m), -ière
+								(f) {異形 -er, -ère}</label></li>
+						<li><input type="checkbox" id="checkbox20"><label for="checkbox20">3.「店」などを表す-erie (f), -ie
+								(f)</label></li>
+						<li><input type="checkbox" id="checkbox21"><label for="checkbox21">4.「植物の生育場所」を表す-aie (f),
+								-eraie (f)</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">§3 名詞から「人・物」を表す名詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox23"><label for="checkbox23">1. 「小さな･･」を表す (1) --et (m),
+								-ette (f)</label></li>
+						<li><input type="checkbox" id="checkbox24"><label for="checkbox24">2. 「小さな･･･」を表す (2) -asse (f),
+								-eau (m), -elet (m), -elette (f), -elle (f), -eron (m), -iche (f), -ichon (m), -ille
+								(f), -illon (m), -in (m), -ine (f), -iole (f), -oche (f), -on (m) {異形-ion}, -ot (m),
+								-otte (f), -ule (m/f) {異形-cule, -icule}</label></li>
+						<li><input type="checkbox" id="checkbox25"><label for="checkbox25">3.「集合・全体」を表す -ade (f), -age
+								(m), -ail (m), -aille (f), -at (m) {異形-iat}, -ée (f), -erie (f), -ure (1)
+								{異形-ature}</label></li>
+						<li><input type="checkbox" id="checkbox26"><label for="checkbox26">4. 「関連物」を表す--aire (m)
+								{異形-iaire}, -ard (m)</label></li>
+						<li><input type="checkbox" id="checkbox27"><label for="checkbox27">5. 「女・雌」を表す--esse (f)</label>
+						</li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox28"><label for="checkbox28">第1章の総合練習</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox29"><label for="checkbox29"></label><strong>第2章 「人・物」を表す名詞を作る
+					(2)</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">§4 動詞から「人」を表す名詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox31"><label for="checkbox31">1. -eur (m) [-euse (f), -eure
+								(f), -eresse (f)]</label></li>
+						<li><input type="checkbox" id="checkbox32"><label for="checkbox32">2. -teur (m) [-trice (f)]
+								{異形-ateur [-atrice], -iteur [-itrice], -sseur}</label></li>
+						<li><input type="checkbox" id="checkbox33"><label for="checkbox33">3. -ant (m) [-ante (f)]; -ent
+								(m) [-ente (f)]</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">§5. 動詞から「物」を表す名詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox35"><label for="checkbox35">1. -eur (m), -euse (f); -teur
+								(m), -trice (f) {異形-ateur, -atrice}</label></li>
+						<li><input type="checkbox" id="checkbox36"><label for="checkbox36">2. -ant (m), -ante (f); -ent
+								(m)</label></li>
+						<li><input type="checkbox" id="checkbox37"><label for="checkbox37">3. -oir (m), -oire (f);
+								-atoire (m)</label></li>
+						<li><input type="checkbox" id="checkbox38"><label for="checkbox38">4. -et (m), -ette (f)</label>
+						</li>
+						<li><input type="checkbox" id="checkbox39"><label for="checkbox39">5. -ail (m), -aille (f), -ard
+								(m), -eau (m), -elet (m), -erelle (f), -eret (m), -erette (f), -ier (m), ière (f), -ot
+								(m), -otte (f), -ule (m/f)</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox40"><label for="checkbox40">第2章の総合練習</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox41"><label for="checkbox41"></label><strong>第3章 「行為」を表す名詞を作る</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">§6 動詞から「行為」を表す名詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox43"><label for="checkbox43">1. -age (m)</label></li>
+						<li><input type="checkbox" id="checkbox44"><label for="checkbox44">2. -ement (m){異形-ment,
+								-ament, -iment}</label></li>
+						<li><input type="checkbox" id="checkbox45"><label for="checkbox45">3. -tion (f) {異形-ation,
+								-ition, -ion, -otion, -ution, -sion, -ssion, -xion}</label></li>
+						<li><input type="checkbox" id="checkbox46"><label for="checkbox46">4. -ance (f), -ence
+								(f)</label></li>
+						<li><input type="checkbox" id="checkbox47"><label for="checkbox47">5. -é (m), -ée (f)</label>
+						</li>
+						<li><input type="checkbox" id="checkbox48"><label for="checkbox48">6. -ade (f)</label></li>
+						<li><input type="checkbox" id="checkbox49"><label for="checkbox49">7. -aison (f) {異形-ison, -ion,
+								-sson}</label></li>
+						<li><input type="checkbox" id="checkbox50"><label for="checkbox50">8. -erie (f)</label></li>
+						<li><input type="checkbox" id="checkbox51"><label for="checkbox51">9. -ure (f){異形-ature, -eture,
+								-ûre}</label></li>
+						<li><input type="checkbox" id="checkbox52"><label for="checkbox52">10. -on (m/f)</label></li>
+						<li><input type="checkbox" id="checkbox53"><label for="checkbox53">11. -aille (f), -ange (f),
+								-at (m), -ette (f), -ice (m), -ière (f), -is (m), -ise (f)</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">§7 接尾辞を用いない派生 (=逆派生)</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox55"><label for="checkbox55">1. er で終わる動詞からの逆派生</label>
+						</li>
+						<li><input type="checkbox" id="checkbox56"><label for="checkbox56">2. -irで終わる動詞からの逆派生</label>
+						</li>
+						<li><input type="checkbox" id="checkbox57"><label for="checkbox57">3. -re で終わる動詞からの逆派生</label>
+						</li>
+						<li><input type="checkbox" id="checkbox58"><label for="checkbox58">4. -oir で終わる動詞からの逆派生</label>
+						</li>
+						<li><input type="checkbox" id="checkbox59"><label for="checkbox59">5. 変則的なもの</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">第3章の総合練習</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox61"><label for="checkbox61"></label><strong>第4章 形容詞を作る</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox62"><label for="checkbox62">§8 名詞から「関係・性質」を表す形容詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox63"><label for="checkbox63">1. -al(e) {異形-ial(e)};
+								-el(le) {異形-iel(le), -uel(le)}</label></li>
+						<li><input type="checkbox" id="checkbox64"><label for="checkbox64">2. -ique {異形-tique, -atique,
+								-étique, -istique, -iaque, -ifique}</label></li>
+						<li><input type="checkbox" id="checkbox65"><label for="checkbox65">3. -aire (異形-iaire, -uaire,
+								-itaire, -taire)</label></li>
+						<li><input type="checkbox" id="checkbox66"><label for="checkbox66">4. -ier [-ière] {異形 -er
+								[-ère]}</label></li>
+						<li><input type="checkbox" id="checkbox67"><label for="checkbox67">5. -if [-ive]{異形-atif
+								[-ative], -tif [-tive]}</label></li>
+						<li><input type="checkbox" id="checkbox68"><label for="checkbox68">6. -oire {異形-atoire,
+								-toire}</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">§9 ある種のニュアンスを伴う形容詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox70"><label for="checkbox70">1. -eux [-euse] {異形-ieux
+								[-ieuse], -ueux [-ueuse]}</label></li>
+						<li><input type="checkbox" id="checkbox71"><label for="checkbox71">2. -é(e), -u(e)</label></li>
+						<li><input type="checkbox" id="checkbox72"><label for="checkbox72">3. -in(e)</label></li>
+						<li><input type="checkbox" id="checkbox73"><label for="checkbox73">4. -esque</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox74"><label for="checkbox74">§10 「国・都市・地域」などを表す形容詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox75"><label for="checkbox75">1. -ais(e)</label></li>
+						<li><input type="checkbox" id="checkbox76"><label for="checkbox76">2. -ois(e)</label></li>
+						<li><input type="checkbox" id="checkbox77"><label for="checkbox77">3. -ien(ne), -éen (ne)
+								{異形-en(ne)}</label></li>
+						<li><input type="checkbox" id="checkbox78"><label for="checkbox78">4. -ain(e)</label></li>
+						<li><input type="checkbox" id="checkbox79"><label for="checkbox79">5. -an(e)</label></li>
+						<li><input type="checkbox" id="checkbox80"><label for="checkbox80">6. -in(e)</label></li>
+						<li><input type="checkbox" id="checkbox81"><label for="checkbox81">7. その他の、地名に関する形容詞</label>
+						</li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox82"><label for="checkbox82">§11 動詞から形容詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox83"><label for="checkbox83">1. -ant(e), -ent(e)</label>
+						</li>
+						<li><input type="checkbox" id="checkbox84"><label for="checkbox84">2. -eur [-euse]; -teur
+								[-trice] {異形-ateur [-atrice]}</label></li>
+						<li><input type="checkbox" id="checkbox85"><label for="checkbox85">3. -able {異形-ible,
+								-uble}</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox86"><label for="checkbox86">§ 12 形容詞から形容詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox87"><label for="checkbox87">1. -ième</label></li>
+						<li><input type="checkbox" id="checkbox88"><label for="checkbox88">2. -âtre</label></li>
+						<li><input type="checkbox" id="checkbox89"><label for="checkbox89">3. -et(te), -elet(te),
+								-ichon(ne), -ot((t)e) {異形-iot(te)}</label></li>
+						<li><input type="checkbox" id="checkbox90"><label for="checkbox90">4. -ard(e), -aud(e)</label>
+						</li>
+						<li><input type="checkbox" id="checkbox91"><label for="checkbox91">5. -asse</label></li>
+						<li><input type="checkbox" id="checkbox92"><label for="checkbox92">6. -issime</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox93"><label for="checkbox93">第4章の総合練習</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox94"><label for="checkbox94"></label><strong>第5章
+					「性質・状態」を表す名詞を作る</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox95"><label for="checkbox95">§13 形容詞から「性質・状態」を表す名詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox96"><label for="checkbox96">1. -eur (f)</label></li>
+						<li><input type="checkbox" id="checkbox97"><label for="checkbox97">2. -esse (1)
+								{異形-eresse}</label></li>
+						<li><input type="checkbox" id="checkbox98"><label for="checkbox98">3. -ité (f), -té (f)
+								{異形-éité, -iété}</label></li>
+						<li><input type="checkbox" id="checkbox99"><label for="checkbox99">4. -isme (m)</label></li>
+						<li><input type="checkbox" id="checkbox100"><label for="checkbox100">5. -ance (f), -ence
+								(f)</label></li>
+						<li><input type="checkbox" id="checkbox101"><label for="checkbox101">6. -erie (f)</label></li>
+						<li><input type="checkbox" id="checkbox102"><label for="checkbox102">7. -ie (f)</label></li>
+						<li><input type="checkbox" id="checkbox103"><label for="checkbox103">8. -itude (f)
+								{異形-ude}</label></li>
+						<li><input type="checkbox" id="checkbox104"><label for="checkbox104">9. -ice (f), -ion (f), -ise
+								(f), -ure (f)</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox105"><label for="checkbox105">第5章の総合練習</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox106"><label for="checkbox106"></label><strong>第6章 動詞を作る</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox107"><label for="checkbox107">§14 名詞・形容詞から動詞を作る接尾辞</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox108"><label for="checkbox108">1. -er</label></li>
+						<li><input type="checkbox" id="checkbox109"><label for="checkbox109">2. -ir</label></li>
+						<li><input type="checkbox" id="checkbox110"><label for="checkbox110">3. -iser
+								{異形-atiser}</label></li>
+						<li><input type="checkbox" id="checkbox111"><label for="checkbox111">4. -ifier {異形-éfier,
+								-fier}</label></li>
+						<li><input type="checkbox" id="checkbox112"><label for="checkbox112">5. -oyer</label></li>
+						<li><input type="checkbox" id="checkbox113"><label for="checkbox113">6. -ailler, -asser, -eter,
+								-iller, -iner, -onner, -ot(t)er, -ouiller</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox114"><label for="checkbox114">第6章の総合練習</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox115"><label for="checkbox115"></label><strong>第7章 副詞を作る</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox116"><label for="checkbox116">§15 形容詞から副詞を作る接尾辞</label></li>
+				<li><input type="checkbox" id="checkbox117"><label for="checkbox117">第7章の総合練習</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

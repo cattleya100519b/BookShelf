@@ -1,0 +1,129 @@
+## Book
+- [倉方フランス語講座 II 語形成](https://www.trefle.press/product-page/%E5%80%89%E6%96%B9%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E8%AA%9E%E8%AC%9B%E5%BA%A7-ii-%E8%AA%9E%E5%BD%A2%E6%88%90)
+- Purchase Date: 2024/10/08 (ジュンク堂藤沢)
+
+## CheckList
+- [ ] **序章**
+    - [ ] 1. 語の種類
+    - [ ] 2. 語形成一派生と複合
+    - [ ] 3. 接尾辞派生
+    - [ ] 4. 基語, 派生語, 語幹
+    - [ ] 5. 現用語彙の習得
+    - [ ] 6. 接尾辞派生に関する留意点
+    - [ ] 7. 構成と表記
+    - [ ] 8. 『新綴り」について
+
+- [ ] **第1章「人・物」を表す名詞を作る (1)**
+    - [ ] §1 名詞から「人」を表す名詞を作る接尾辞
+        - [ ] 1. -iste (mf)
+        - [ ] 2. -ier (m) [-ière (f)] {異形-er [-ère]}
+        - [ ] 3. -ien (m) [-ienne (f)] {異形-yen [-yenne]}, -éen (m) [-éenne (1)]
+        - [ ] 4. -aire (mf){異形-iaire}
+        - [ ] 5. -ard (m) [-arde (1)]
+        - [ ] 6. -ain (m) [-aine (f)], -aste (mf), -eron (m) [-eronne (f)], -isan (m) [-isane (f)], -on (m) [-onne (f)]
+    - [ ] §2 名詞から「物」を表す名詞を作る接尾辞
+        - [ ] 1.「木」を表す--ier (m) {異形-er}
+        - [ ] 2. 「入れ物」を表す-ier (m), -ière (f) {異形 -er, -ère}
+        - [ ] 3.「店」などを表す-erie (f), -ie (f)
+        - [ ] 4.「植物の生育場所」を表す-aie (f), -eraie (f)
+    - [ ] §3 名詞から「人・物」を表す名詞を作る接尾辞
+        - [ ] 1. 「小さな･･」を表す (1) --et (m), -ette (f)
+        - [ ] 2. 「小さな･･･」を表す (2) -asse (f), -eau (m), -elet (m), -elette (f), -elle (f), -eron (m), -iche (f), -ichon (m), -ille (f), -illon (m), -in (m), -ine (f), -iole (f), -oche (f), -on (m) {異形-ion}, -ot (m), -otte (f), -ule (m/f) {異形-cule, -icule}
+        - [ ] 3.「集合・全体」を表す -ade (f), -age (m), -ail (m), -aille (f), -at (m) {異形-iat}, -ée (f), -erie (f), -ure (1) {異形-ature}
+        - [ ] 4. 「関連物」を表す--aire (m) {異形-iaire}, -ard (m)
+        - [ ] 5. 「女・雌」を表す--esse (f)
+    - [ ] 第1章の総合練習
+
+- [ ] **第2章 「人・物」を表す名詞を作る (2)**
+    - [ ] §4 動詞から「人」を表す名詞を作る接尾辞
+        - [ ] 1. -eur (m) [-euse (f), -eure (f), -eresse (f)]
+        - [ ] 2. -teur (m) [-trice (f)] {異形-ateur [-atrice], -iteur [-itrice], -sseur}
+        - [ ] 3. -ant (m) [-ante (f)]; -ent (m) [-ente (f)]
+    - [ ] §5. 動詞から「物」を表す名詞を作る接尾辞
+        - [ ] 1. -eur (m), -euse (f); -teur (m), -trice (f) {異形-ateur, -atrice}
+        - [ ] 2. -ant (m), -ante (f); -ent (m)
+        - [ ] 3. -oir (m), -oire (f); -atoire (m)
+        - [ ] 4. -et (m), -ette (f)
+        - [ ] 5. -ail (m), -aille (f), -ard (m), -eau (m), -elet (m), -erelle (f), -eret (m), -erette (f), -ier (m), ière (f), -ot (m), -otte (f), -ule (m/f)
+    - [ ] 第2章の総合練習
+
+- [ ] **第3章 「行為」を表す名詞を作る**
+    - [ ] §6 動詞から「行為」を表す名詞を作る接尾辞
+        - [ ] 1. -age (m)
+        - [ ] 2. -ement (m){異形-ment, -ament, -iment}
+        - [ ] 3. -tion (f) {異形-ation, -ition, -ion, -otion, -ution, -sion, -ssion, -xion}
+        - [ ] 4. -ance (f), -ence (f)
+        - [ ] 5. -é (m), -ée (f)
+        - [ ] 6. -ade (f)
+        - [ ] 7. -aison (f) {異形-ison, -ion, -sson}
+        - [ ] 8. -erie (f)
+        - [ ] 9. -ure (f){異形-ature, -eture, -ûre}
+        - [ ] 10. -on (m/f)
+        - [ ] 11. -aille (f), -ange (f), -at (m), -ette (f), -ice (m), -ière (f), -is (m), -ise (f)
+    - [ ] §7 接尾辞を用いない派生 (=逆派生)
+        - [ ] 1. er で終わる動詞からの逆派生
+        - [ ] 2. -irで終わる動詞からの逆派生
+        - [ ] 3. -re で終わる動詞からの逆派生
+        - [ ] 4. -oir で終わる動詞からの逆派生
+        - [ ] 5. 変則的なもの
+    - [ ] 第3章の総合練習
+- [ ] **第4章 形容詞を作る**
+    - [ ] §8 名詞から「関係・性質」を表す形容詞を作る接尾辞
+        - [ ] 1. -al(e) {異形-ial(e)}; -el(le) {異形-iel(le), -uel(le)}
+        - [ ] 2. -ique {異形-tique, -atique, -étique, -istique, -iaque, -ifique}
+        - [ ] 3. -aire (異形-iaire, -uaire, -itaire, -taire)
+        - [ ] 4. -ier [-ière] {異形 -er [-ère]}
+        - [ ] 5. -if [-ive]{異形-atif [-ative], -tif [-tive]}
+        - [ ] 6. -oire {異形-atoire, -toire}
+    - [ ] §9 ある種のニュアンスを伴う形容詞を作る接尾辞
+        - [ ] 1. -eux [-euse] {異形-ieux [-ieuse], -ueux [-ueuse]}
+        - [ ] 2. -é(e), -u(e)
+        - [ ] 3. -in(e)
+        - [ ] 4. -esque
+    - [ ] §10 「国・都市・地域」などを表す形容詞を作る接尾辞
+        - [ ] 1. -ais(e)
+        - [ ] 2. -ois(e)
+        - [ ] 3. -ien(ne), -éen (ne) {異形-en(ne)}
+        - [ ] 4. -ain(e)
+        - [ ] 5. -an(e)
+        - [ ] 6. -in(e)
+        - [ ] 7. その他の、地名に関する形容詞
+    - [ ] §11 動詞から形容詞を作る接尾辞
+        - [ ] 1. -ant(e), -ent(e)
+        - [ ] 2. -eur [-euse]; -teur [-trice] {異形-ateur [-atrice]}
+        - [ ] 3. -able {異形-ible, -uble}
+    - [ ] § 12 形容詞から形容詞を作る接尾辞
+        - [ ] 1. -ième
+        - [ ] 2. -âtre
+        - [ ] 3. -et(te), -elet(te), -ichon(ne), -ot((t)e) {異形-iot(te)}
+        - [ ] 4. -ard(e), -aud(e)
+        - [ ] 5. -asse
+        - [ ] 6. -issime
+    - [ ] 第4章の総合練習
+
+- [ ] **第5章 「性質・状態」を表す名詞を作る**
+    - [ ] §13 形容詞から「性質・状態」を表す名詞を作る接尾辞
+        - [ ] 1. -eur (f)
+        - [ ] 2. -esse (1) {異形-eresse}
+        - [ ] 3. -ité (f), -té (f) {異形-éité, -iété}
+        - [ ] 4. -isme (m)
+        - [ ] 5. -ance (f), -ence (f)
+        - [ ] 6. -erie (f)
+        - [ ] 7. -ie (f)
+        - [ ] 8. -itude (f) {異形-ude}
+        - [ ] 9. -ice (f), -ion (f), -ise (f), -ure (f)
+    - [ ] 第5章の総合練習
+
+- [ ] **第6章 動詞を作る**
+    - [ ] §14 名詞・形容詞から動詞を作る接尾辞
+        - [ ] 1. -er
+        - [ ] 2. -ir
+        - [ ] 3. -iser {異形-atiser}
+        - [ ] 4. -ifier {異形-éfier, -fier}
+        - [ ] 5. -oyer
+        - [ ] 6. -ailler, -asser, -eter, -iller, -iner, -onner, -ot(t)er, -ouiller
+    - [ ] 第6章の総合練習
+
+- [ ] **第7章 副詞を作る**
+    - [ ] §15 形容詞から副詞を作る接尾辞
+    - [ ] 第7章の総合練習

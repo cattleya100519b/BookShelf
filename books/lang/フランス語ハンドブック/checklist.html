@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>フランス語ハンドブック</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a href="https://www.hakusuisha.co.jp/book/b648416.html">フランス語ハンドブック</a></li>
+		<li>Purchase Date: 2024/10/22 (amazon)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<h3 id="%E6%96%87%E6%B3%95">文法</h3>
+	<h4 id="i-%E6%96%87%E3%81%AE%E8%A6%81%E7%B4%A0">I 文の要素</h4>
+	<ul>
+		<li><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>1 概観</strong></li>
+		<li><input type="checkbox" id="checkbox1"><label for="checkbox1"></label><strong>2 名詞グループ</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">§1 名詞</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">§2 限定辞</label></li>
+				<li><input type="checkbox" id="checkbox4"><label for="checkbox4">§3 数・量の表現と不定形容詞</label></li>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">§4 名詞グループの性質(まとめ)</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox6"><label for="checkbox6"></label><strong>3 動詞グループ</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">§1 動詞の形態</label></li>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">§2 活用</label></li>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">§3 時制の用法</label></li>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">§4 動詞グループの組成 (1)</label></li>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">§5 動詞グループの組成 (2)</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox12"><label for="checkbox12"></label><strong>4 形容詞グループ</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox13"><label for="checkbox13">§1 形容詞の変化</label></li>
+				<li><input type="checkbox" id="checkbox14"><label for="checkbox14">§2 形容詞と名詞・副詞との関係</label></li>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">§3 形容詞グループの組成</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">§4 形容詞グループの機能</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox17"><label for="checkbox17"></label><strong>5 前置詞グループ</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">§1 前置詞グループの形態</label></li>
+				<li><input type="checkbox" id="checkbox19"><label for="checkbox19">§2 前置詞グループの機能</label></li>
+				<li><input type="checkbox" id="checkbox20"><label for="checkbox20">§3 前置詞グループに相当する語句</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h4 id="ii-%E6%96%87%E3%81%AE%E5%A4%89%E5%BD%A2%E3%83%BB%E5%B1%95%E9%96%8B">II 文の変形・展開</h4>
+	<ul>
+		<li><input type="checkbox" id="checkbox21"><label for="checkbox21"></label><strong>1 概観</strong></li>
+		<li><input type="checkbox" id="checkbox22"><label for="checkbox22"></label><strong>2 代名詞</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox23"><label for="checkbox23">§1 代名詞の種類</label></li>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">§2 人称代名詞</label></li>
+				<li><input type="checkbox" id="checkbox25"><label for="checkbox25">§3 指示代名詞</label></li>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">§4 所有代名詞</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">§5 数代名詞と不定代名詞</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox28"><label for="checkbox28"></label><strong>3 複文</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">§1 複文の構成</label></li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">§2 名詞節</label></li>
+				<li><input type="checkbox" id="checkbox31"><label for="checkbox31">§3 形容詞節</label></li>
+				<li><input type="checkbox" id="checkbox32"><label for="checkbox32">§4 副詞節</label></li>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">§5 接続法</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">§6 時制の照応</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox35"><label for="checkbox35"></label><strong>4 複文に準ずるもの</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox36"><label for="checkbox36">§1 不定詞</label></li>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">§2 分詞、ジェロンディフ</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">§3 動詞・形容詞の名詞化</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h4 id="iii-%E6%96%87%E3%81%AE%E7%A8%AE%E9%A1%9E">III 文の種類</h4>
+	<ul>
+		<li><input type="checkbox" id="checkbox39"><label for="checkbox39"></label><strong>1 概観</strong></li>
+		<li><input type="checkbox" id="checkbox40"><label for="checkbox40"></label><strong>2 文のタイプ</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">§1 疑問文</label></li>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">§2 命令文</label></li>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">§3 感嘆文</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox44"><label for="checkbox44"></label><strong>3 文の様態</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">§1 否定</label></li>
+				<li><input type="checkbox" id="checkbox46"><label for="checkbox46">§2 能動態と受動態</label></li>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">§3 強調</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox48"><label for="checkbox48"></label><strong>4 特殊な文</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox49"><label for="checkbox49">§1 非人称構文</label></li>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">§2 c'est</label></li>
+				<li><input type="checkbox" id="checkbox51"><label for="checkbox51">§3 voici, voilà</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h3 id="%E8%A7%A3%E9%87%88">解釈</h3>
+	<h4 id="i-%E6%A9%9F%E8%83%BD%E8%AA%9E%E3%81%AE%E5%85%AC%E5%BC%8F%E7%A0%94%E7%A9%B6">I 機能語の公式研究</h4>
+	<h5
+		id="i-%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB---%E6%96%87%E7%AB%A0%E7%90%86%E8%A7%A3%E3%81%AE%E6%89%8B%E3%81%8C%E3%81%8B%E3%82%8A">
+		(I) はじめに - 文章理解の手がかり -</h5>
+	<h5 id="ii-%E4%B8%BB%E8%A6%81%E3%81%AA%E6%A9%9F%E8%83%BD%E8%AA%9E">(II) 主要な機能語</h5>
+	<ul>
+		<li><input type="checkbox" id="checkbox52"><label for="checkbox52"></label><strong>1 comme</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox53"><label for="checkbox53">§1 《時》を示すのか、《理由》を示すのか？</label></li>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">§2 「...のように」なのか「...として」なのか？</label>
+				</li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">§3 語義を弱めたり和らげたりする comme</label></li>
+				<li><input type="checkbox" id="checkbox56"><label for="checkbox56">§4 否定文における comme</label></li>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">§5 comme si</label></li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">§6 2つの事実の類似・適合を示す comme</label></li>
+				<li><input type="checkbox" id="checkbox59"><label for="checkbox59">§7 et に近い comme</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox60"><label for="checkbox60"></label><strong>2 même</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox61"><label for="checkbox61">§1 moi (toi, lui,
+						etc.)-même(s)</label></li>
+				<li><input type="checkbox" id="checkbox62"><label for="checkbox62">§2 接続詞+même (または、même+接続詞)</label>
+				</li>
+				<li><input type="checkbox" id="checkbox63"><label for="checkbox63">§3 限定辞+même+名詞</label></li>
+				<li><input type="checkbox" id="checkbox64"><label for="checkbox64">§4 名詞+même</label></li>
+				<li><input type="checkbox" id="checkbox65"><label for="checkbox65">§5 副詞とみなされる même</label></li>
+				<li><input type="checkbox" id="checkbox66"><label for="checkbox66">§6 même を含む成句的表現</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox67"><label for="checkbox67"></label><strong>3 moins</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox68"><label for="checkbox68">§1 必ずしも《比較》を意味しない moins que</label>
+				</li>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">§2 ne... pas+moins</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox70"><label for="checkbox70"></label><strong>4 plus</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox71"><label for="checkbox71">§1 ne をともなわずに否定の意味になる場合</label></li>
+				<li><input type="checkbox" id="checkbox72"><label for="checkbox72">§2 neとplus の組合せ</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox73"><label for="checkbox73"></label><strong>5 ne</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox74"><label for="checkbox74">§1 否定語の位置についての注意</label></li>
+				<li><input type="checkbox" id="checkbox75"><label for="checkbox75">§2 否定表現が複合されている場合</label></li>
+				<li><input type="checkbox" id="checkbox76"><label for="checkbox76">§3 ne のみで否定文になる場合</label></li>
+				<li><input type="checkbox" id="checkbox77"><label for="checkbox77">§4 必ずしも否定文として訳出する必要のない場合</label></li>
+				<li><input type="checkbox" id="checkbox78"><label for="checkbox78">§5 否定表現と考えてはならぬ場合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox79"><label for="checkbox79"></label><strong>6 pour</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox80"><label for="checkbox80">§1 結果を示す場合</label></li>
+				<li><input type="checkbox" id="checkbox81"><label for="checkbox81">§2 理由を示す場合</label></li>
+				<li><input type="checkbox" id="checkbox82"><label for="checkbox82">§3 対立・譲歩を示す場合</label></li>
+				<li><input type="checkbox" id="checkbox83"><label for="checkbox83">§4 話題を示す場合</label></li>
+				<li><input type="checkbox" id="checkbox84"><label for="checkbox84">§5 条件を示す場合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox85"><label for="checkbox85"></label><strong>7 que</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox86"><label for="checkbox86">A. 文頭の que</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox87"><label for="checkbox87">§1 接続法の動詞を従えている場合</label>
+						</li>
+						<li><input type="checkbox" id="checkbox88"><label for="checkbox88">§2 接続法の動詞を従えていない場合</label>
+						</li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox89"><label for="checkbox89">B. 文頭にない que</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox90"><label for="checkbox90">§1 接続法の動詞を従えている場合</label>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox91"><label for="checkbox91"></label><strong>8 si</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox92"><label for="checkbox92">§1 si+形容詞(副詞)</label></li>
+				<li><input type="checkbox" id="checkbox93"><label for="checkbox93">§2 si で始まる節が独立している場合</label></li>
+				<li><input type="checkbox" id="checkbox94"><label for="checkbox94">§3 si で始まる節の前に他動詞、代名動詞がある場合</label>
+				</li>
+				<li><input type="checkbox" id="checkbox95"><label for="checkbox95">§4 si A, c'est (parce) que B</label>
+				</li>
+				<li><input type="checkbox" id="checkbox96"><label for="checkbox96">§5 主節が条件法(接続法大過去形を含む)の場合</label></li>
+				<li><input type="checkbox" id="checkbox97"><label for="checkbox97">§6 主節が直説法の場合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox98"><label for="checkbox98"></label><strong>9 tant</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox99"><label for="checkbox99">§1 tant (...) que</label></li>
+				<li><input type="checkbox" id="checkbox100"><label for="checkbox100">§2 tant que...</label></li>
+				<li><input type="checkbox" id="checkbox101"><label for="checkbox101">§3 同等比較を示す場合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox102"><label for="checkbox102"></label><strong>10 tel</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox103"><label for="checkbox103">§1 que をともなわぬ場合</label></li>
+				<li><input type="checkbox" id="checkbox104"><label for="checkbox104">§2 tel que の組合せの場合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox105"><label for="checkbox105"></label><strong>11 tout</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox106"><label for="checkbox106">§1 品詞の弁別に注意すべき場合</label></li>
+				<li><input type="checkbox" id="checkbox107"><label for="checkbox107">§2 品詞よりも用法の違いに注意すべき場合</label></li>
+				<li><input type="checkbox" id="checkbox108"><label for="checkbox108">§3 否定文中の tout</label></li>
+				<li><input type="checkbox" id="checkbox109"><label for="checkbox109">§4 tout を含む若干の構文</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h5 id="iii-%E4%B8%BB%E8%AA%9E%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E8%AB%B8%E5%95%8F%E9%A1%8C">(III)
+		主語に関連する諸問題</h5>
+	<ul>
+		<li><input type="checkbox" id="checkbox110"><label for="checkbox110"></label><strong>1 主語の倒置</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox111"><label for="checkbox111">§1 疑問文、とくに反語的な場合</label></li>
+				<li><input type="checkbox" id="checkbox112"><label for="checkbox112">§2 願望・祈念を表わす場合</label></li>
+				<li><input type="checkbox" id="checkbox113"><label for="checkbox113">§3 &lt;属詞-動詞-主語&gt;の語順になる場合</label>
+				</li>
+				<li><input type="checkbox" id="checkbox114"><label for="checkbox114">§4
+						&lt;文(動詞)の補足-動詞-主語&gt;の語順になる場合</label></li>
+				<li><input type="checkbox" id="checkbox115"><label for="checkbox115">§5 挿入節における倒置</label></li>
+				<li><input type="checkbox" id="checkbox116"><label for="checkbox116">§6 形容詞節における倒置</label></li>
+				<li><input type="checkbox" id="checkbox117"><label for="checkbox117">§7 comme に導かれる節における倒置</label></li>
+				<li><input type="checkbox" id="checkbox118"><label for="checkbox118">§8 倒置を含む成句的表現</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox119"><label for="checkbox119"></label><strong>2 on</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox120"><label for="checkbox120">§1 人称に注意すべき場合</label></li>
+				<li><input type="checkbox" id="checkbox121"><label for="checkbox121">§2 訳出する必要のない場合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox122"><label for="checkbox122"></label><strong>3 中性のil</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox123"><label for="checkbox123">§1 il y a に等しい il est
+						(文章語で)</label></li>
+				<li><input type="checkbox" id="checkbox124"><label for="checkbox124">§2 本来の人称動詞が非人称構文をとる場合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox125"><label for="checkbox125"></label><strong>【補遺】 コンマ (virgule)
+				に関する注意</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox126"><label for="checkbox126">§1 主語の前にコンマがある場合</label></li>
+				<li><input type="checkbox" id="checkbox127"><label for="checkbox127">§2 挿入節について</label></li>
+				<li><input type="checkbox" id="checkbox128"><label for="checkbox128">§3 動詞の省略</label></li>
+				<li><input type="checkbox" id="checkbox129"><label for="checkbox129">§4 コンマの有無で文意に変化が生じる場合</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h4 id="ii-%E5%8B%95%E8%A9%9E%E3%81%AE%E7%A0%94%E7%A9%B6">II 動詞の研究</h4>
+	<ul>
+		<li><input type="checkbox" id="checkbox130"><label for="checkbox130"></label><strong>1 直説法</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox131"><label for="checkbox131">§1 現在形</label></li>
+				<li><input type="checkbox" id="checkbox132"><label for="checkbox132">§2 複合過去形</label></li>
+				<li><input type="checkbox" id="checkbox133"><label for="checkbox133">§3 半過去形</label></li>
+				<li><input type="checkbox" id="checkbox134"><label for="checkbox134">§4 大過去形</label></li>
+				<li><input type="checkbox" id="checkbox135"><label for="checkbox135">§5 単純過去形</label></li>
+				<li><input type="checkbox" id="checkbox136"><label for="checkbox136">§6 前過去形</label></li>
+				<li><input type="checkbox" id="checkbox137"><label for="checkbox137">§7 単純未来形</label></li>
+				<li><input type="checkbox" id="checkbox138"><label for="checkbox138">§8 前未来形</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox139"><label for="checkbox139"></label><strong>2 条件法</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox140"><label for="checkbox140">A. 時制としての条件法</label></li>
+				<li><input type="checkbox" id="checkbox141"><label for="checkbox141">B. 法としての条件法</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox142"><label for="checkbox142">§1
+								条件文(仮定文)の帰結節中で用いられる条件法</label></li>
+						<li><input type="checkbox" id="checkbox143"><label for="checkbox143">§2 仮定的な事象を述べる条件法</label>
+						</li>
+						<li><input type="checkbox" id="checkbox144"><label for="checkbox144">§3 推測・疑念を表わす条件法</label>
+						</li>
+						<li><input type="checkbox" id="checkbox145"><label for="checkbox145">§4 緩和的語調を表わす条件法</label>
+						</li>
+						<li><input type="checkbox" id="checkbox146"><label for="checkbox146">§5 反語的価値をもつ条件法</label></li>
+						<li><input type="checkbox" id="checkbox147"><label for="checkbox147">§6 譲歩文における条件法</label></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox148"><label for="checkbox148"></label><strong>3 接続法</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox149"><label for="checkbox149">A. 従属節中の接続法</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox150"><label for="checkbox150">§1 名詞節中の接続法</label></li>
+						<li><input type="checkbox" id="checkbox151"><label for="checkbox151">§2 形容詞節中の接続法</label></li>
+						<li><input type="checkbox" id="checkbox152"><label for="checkbox152">§3 副詞節中の接続法</label></li>
+					</ul>
+				</li>
+				<li><input type="checkbox" id="checkbox153"><label for="checkbox153">B. 独立節中の接続法</label></li>
+				<li><input type="checkbox" id="checkbox154"><label for="checkbox154">【補遺】 自由間接文体について</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h4 id="iii-%E9%A1%9E%E4%BC%BC%E8%A1%A8%E7%8F%BE%E3%81%AE%E7%A0%94%E7%A9%B6">III 類似表現の研究</h4>
+	<h3 id="%E4%BD%9C%E6%96%87">作文</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox155"><label for="checkbox155"></label><strong>I 和文仏訳の原理</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox156"><label for="checkbox156">§1 概観</label></li>
+				<li><input type="checkbox" id="checkbox157"><label for="checkbox157">§2 日本語の文の構成とフランス語への変換の原則</label>
+				</li>
+				<li><input type="checkbox" id="checkbox158"><label for="checkbox158">§3 和文仏訳の問題点</label></li>
+				<li><input type="checkbox" id="checkbox159"><label for="checkbox159">§4 まとめ</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox160"><label for="checkbox160"></label><strong>II 和文仏訳の実際</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox161"><label for="checkbox161">(pp. 340-341 の内容一覧参照)</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h3 id="%E5%8D%98%E8%AA%9E">単語</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox162"><label for="checkbox162"></label><strong>1 フランス語の生い立ち</strong></li>
+		<li><input type="checkbox" id="checkbox163"><label for="checkbox163"></label><strong>2 単語の派生と合成</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox164"><label for="checkbox164">§1 派生</label></li>
+				<li><input type="checkbox" id="checkbox165"><label for="checkbox165">§2 合成</label></li>
+				<li><input type="checkbox" id="checkbox166"><label for="checkbox166">§3 短縮</label></li>
+				<li><input type="checkbox" id="checkbox167"><label for="checkbox167">§4 擬声語</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox168"><label for="checkbox168"></label><strong>3 主な接尾辞</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox169"><label for="checkbox169">§1 名詞をつくる接尾辞</label></li>
+				<li><input type="checkbox" id="checkbox170"><label for="checkbox170">§2 形容詞をつくる接尾辞</label></li>
+				<li><input type="checkbox" id="checkbox171"><label for="checkbox171">§3 副詞をつくる接尾辞</label></li>
+				<li><input type="checkbox" id="checkbox172"><label for="checkbox172">§4 動詞をつくる接尾辞</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox173"><label for="checkbox173"></label><strong>4 主な接頭辞</strong></li>
+		<li><input type="checkbox" id="checkbox174"><label for="checkbox174"></label><strong>5 主要な語の構成要素</strong></li>
+		<li><input type="checkbox" id="checkbox175"><label for="checkbox175"></label><strong>6 同(類)音異義語</strong></li>
+		<li><input type="checkbox" id="checkbox176"><label for="checkbox176"></label><strong>7 間違えやすい綴りの語</strong></li>
+	</ul>
+	<h3 id="%E7%99%BA%E9%9F%B3">発音</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox177"><label for="checkbox177"></label><strong>1 音素と発音記号</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox178"><label for="checkbox178">§1 概観</label></li>
+				<li><input type="checkbox" id="checkbox179"><label for="checkbox179">§2 母音の調音法</label></li>
+				<li><input type="checkbox" id="checkbox180"><label for="checkbox180">§3 子音の調音法</label></li>
+				<li><input type="checkbox" id="checkbox181"><label for="checkbox181">§4 フランス語の発音の特徴</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox182"><label for="checkbox182"></label><strong>2 文字と発音</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox183"><label for="checkbox183">§1 概観</label></li>
+				<li><input type="checkbox" id="checkbox184"><label for="checkbox184">§2 文字の発音の仕方の原則</label></li>
+				<li><input type="checkbox" id="checkbox185"><label for="checkbox185">§3 外来語,固有名詞の発音</label></li>
+				<li><input type="checkbox" id="checkbox186"><label for="checkbox186">§4 個々の文字の発音に関する細則と例外</label>
+					<ul>
+						<li><input type="checkbox" id="checkbox187"><label for="checkbox187">【付】 例外的な発音の基本語100語</label>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox188"><label for="checkbox188"></label><strong>3 文の発音</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox189"><label for="checkbox189">§1 リズム段落</label></li>
+				<li><input type="checkbox" id="checkbox190"><label for="checkbox190">§2 文の抑揚</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h3 id="varia">varia</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox191"><label for="checkbox191">1. 月</label></li>
+		<li><input type="checkbox" id="checkbox192"><label for="checkbox192">2. 曜日</label></li>
+		<li><input type="checkbox" id="checkbox193"><label for="checkbox193">3. 季節</label></li>
+		<li><input type="checkbox" id="checkbox194"><label for="checkbox194">4. 天体</label></li>
+		<li><input type="checkbox" id="checkbox195"><label for="checkbox195">5. 方位</label></li>
+		<li><input type="checkbox" id="checkbox196"><label for="checkbox196">6. 黄道十二宮(獣帯)</label></li>
+		<li><input type="checkbox" id="checkbox197"><label for="checkbox197">7. 時刻の表わし方</label></li>
+		<li><input type="checkbox" id="checkbox198"><label for="checkbox198">8. 親族の名称</label></li>
+		<li><input type="checkbox" id="checkbox199"><label for="checkbox199">9. 人体</label></li>
+		<li><input type="checkbox" id="checkbox200"><label for="checkbox200">10. アルファベと電話</label></li>
+		<li><input type="checkbox" id="checkbox201"><label for="checkbox201">11. 花言葉の代表例</label></li>
+		<li><input type="checkbox" id="checkbox202"><label for="checkbox202">12. 祝祭日</label></li>
+		<li><input type="checkbox" id="checkbox203"><label for="checkbox203">13. 諸聖人の祝日および固定祝祭日</label></li>
+		<li><input type="checkbox" id="checkbox204"><label for="checkbox204">14. 聖書</label></li>
+		<li><input type="checkbox" id="checkbox205"><label for="checkbox205">15. 祈りの言葉</label></li>
+		<li><input type="checkbox" id="checkbox206"><label for="checkbox206">16. 結婚記念日</label></li>
+		<li><input type="checkbox" id="checkbox207"><label for="checkbox207">17. 主要 prénom 仏・英</label></li>
+		<li><input type="checkbox" id="checkbox208"><label for="checkbox208">18. 数</label></li>
+		<li><input type="checkbox" id="checkbox209"><label for="checkbox209">19. ローマ数字</label></li>
+		<li><input type="checkbox" id="checkbox210"><label for="checkbox210">20. 数式記号と読み方</label></li>
+		<li><input type="checkbox" id="checkbox211"><label for="checkbox211">21. 度量衡の諸単位</label></li>
+		<li><input type="checkbox" id="checkbox212"><label for="checkbox212">22. 行末に来た単語の切り方の原則</label></li>
+		<li><input type="checkbox" id="checkbox213"><label for="checkbox213">23. 省略記号をつくる原則</label></li>
+		<li><input type="checkbox" id="checkbox214"><label for="checkbox214">24. 敬称・尊称・称号・肩書などに使われる主な略号</label></li>
+		<li><input type="checkbox" id="checkbox215"><label for="checkbox215">25. 学術書や参考書などでよく使われる略語</label></li>
+		<li><input type="checkbox" id="checkbox216"><label for="checkbox216">26. 新聞・雑誌などに見られる主な略号</label></li>
+		<li><input type="checkbox" id="checkbox217"><label for="checkbox217">27. フランスの地方名とその形容詞・首府</label></li>
+		<li><input type="checkbox" id="checkbox218"><label for="checkbox218">28. 国名一覧表</label></li>
+		<li><input type="checkbox" id="checkbox219"><label for="checkbox219">29. フランス国歌</label></li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

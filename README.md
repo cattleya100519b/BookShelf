@@ -2,7 +2,7 @@
 
 ## Book
 - []()
-- Purchase Date: 2025/
+- Purchase Date: 2025/ ()
 
 ## CheckList
 

@@ -13,6 +13,14 @@ h3 {
     margin-left: 40px
 }
 
+h4 {
+    margin-left: 60px
+}
+
+ul {
+    font-size: 16px;
+}
+
 /* ダークモードのスタイル */
 @media (prefers-color-scheme: dark) {
     body {

@@ -41,6 +41,6 @@
 <!-- index.html へ追加するリンク -->
 
 <ul>
-    <li><a href="books/{category}/{title}/checklist.html">{TITLE}</a></li>
+    <li><a href="books/{category}/{title}/checklist.html">TITLE</a></li>
 </ul>
 ```

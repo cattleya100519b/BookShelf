@@ -1,18 +1,18 @@
 # Template
+
 ## Book
 - []()
 - Purchase Date: 2025/
 
 ## CheckList
 
+
 # Others
+
 ## Requirement
-- 画像の目次をmarkdownのチェックボックスに変換して。
-- 章も節もcheckboxに。
-- 章はBoldで。
-- 章に対して節は字下げして。
-- 章・節・項の内、章と節だけ抽出して、項以下は無視して。
-- 右についている数字はページ数だから無視して。
+- 画像の目次をmarkdownのチェックボックス形式に変換して。
+- 章と節のみを抽出し、章はBoldで、節は字下げして。
+- 項以下の内容は不要で、ページ数も無視して。
 
 ## 各HTMLへの追記
 ```html
@@ -39,6 +39,7 @@
 
 ```html
 <!-- index.html へ追加するリンク -->
+
 <ul>
     <li><a href="books/{category}/{title}/checklist.html">{TITLE}</a></li>
 </ul>

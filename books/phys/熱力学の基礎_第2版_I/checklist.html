@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>熱力学の基礎_第2版_I</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a href="https://www.utp.or.jp/book/b555767.html">熱力学の基礎 第2版 I</a></li>
+		<li><a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/shmz/books/tdbook2">Support</a></li>
+		<li>Purchase Date: 2025/02/06</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li>
+			<p><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>第1章 熱力学の紹介と下準備</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1.1 ミクロ・マクロと陥りやすい幻想</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">1.2 熱力学の意義</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">1.3 熱力学の様々な流儀</label></li>
+				<li><input type="checkbox" id="checkbox4"><label for="checkbox4">1.4 用語や記号に関する注意</label></li>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">1.5 微分と偏微分</label></li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">1.6 ひとつの量が2通りに表されているときの注意</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox7"><label for="checkbox7"></label><strong>第2章 「要請」を理解するための事項</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">2.1 マクロに見る</label></li>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">2.2 熱力学で扱う状態</label></li>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">2.3 マクロな物理量</label></li>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">2.4 エネルギー</label></li>
+				<li><input type="checkbox" id="checkbox12"><label for="checkbox12">2.5 部分系・複合系</label></li>
+				<li><input type="checkbox" id="checkbox13"><label for="checkbox13">2.6 相加変数・示量変数,示強変数</label></li>
+				<li><input type="checkbox" id="checkbox14"><label for="checkbox14">2.7 束縛</label></li>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">2.8 マクロに見て無視できるほど小さい量</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">2.9 Uが相加的になる理由</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox17"><label for="checkbox17"></label><strong>第3章 熱力学の基本的要請</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">3.1 同じ状態・異なる状態</label></li>
+				<li><input type="checkbox" id="checkbox19"><label for="checkbox19">3.2 平衡状態</label></li>
+				<li><input type="checkbox" id="checkbox20"><label for="checkbox20">3.3 エントロピー</label></li>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">3.4 熱力学的性質が同じ状態の同一視</label></li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">3.5 エントロピーの自然な変数について</label></li>
+				<li><input type="checkbox" id="checkbox23"><label for="checkbox23">3.6 複合系に対する要請</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox24"><label for="checkbox24"></label><strong>第4章 要請についての理解を深める</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox25"><label for="checkbox25">4.1 簡単な具体例</label></li>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">4.2 物理的意味と幾何学的解釈</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">4.3 要請IIについて</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox28"><label for="checkbox28"></label><strong>第5章 エントロピーの数学的な性質</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">5.1 相加性・同次性・密度</label></li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">5.2 凸関数</label></li>
+				<li><input type="checkbox" id="checkbox31"><label for="checkbox31">5.3 エントロピーの凸性</label></li>
+				<li><input type="checkbox" id="checkbox32"><label for="checkbox32">5.4 エントロピーの自然な変数の変域</label></li>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">5.5 簡単な具体例</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">5.6 エネルギー表示の基本関係式</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox35"><label for="checkbox35"></label><strong>第6章 示強変数</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox36"><label for="checkbox36">6.1 エントロピー表示の示強変数</label></li>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">6.2 エネルギー表示の示強変数</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">6.3 わずかに異なる平衡状態の比較</label></li>
+				<li><input type="checkbox" id="checkbox39"><label for="checkbox39">6.4 例 - 理想気体</label></li>
+				<li><input type="checkbox" id="checkbox40"><label for="checkbox40">6.5 例 - 光子気体</label></li>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">6.6 Nernst-Planckの仮説</label></li>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">6.7 離散変数での微分や「わずかに異なる平衡状態」の意味</label>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox43"><label for="checkbox43"></label><strong>第7章 仕事と熱 - 簡単な例</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">7.1 マクロ変数としての力・圧力・位置</label></li>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">7.2 力学的仕事と熱の移動</label></li>
+				<li><input type="checkbox" id="checkbox46"><label for="checkbox46">7.3 仕事と熱の性質</label></li>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">7.4 準静的過程における仕事</label></li>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">7.5 準静的過程における熱の移動</label></li>
+				<li><input type="checkbox" id="checkbox49"><label for="checkbox49">7.6 理想気体の圧縮・膨張過程</label></li>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">7.7 van der Waals 気体</label></li>
+				<li><input type="checkbox" id="checkbox51"><label for="checkbox51">7.8 平衡と非平衡の狭間で...</label></li>
+				<li><input type="checkbox" id="checkbox52"><label for="checkbox52">7.9 関連する事項</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox53"><label for="checkbox53"></label><strong>第8章
+					準静的過程における一般の仕事と熱</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">8.1 一般の場合における熱の定義</label></li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">8.2 準静的過程</label></li>
+				<li><input type="checkbox" id="checkbox56"><label for="checkbox56">8.3 気体粒子が透過性の容器に入っている場合</label></li>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">8.4 一般の系の場合</label></li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">8.5 熱力学の論理構造について</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox59"><label for="checkbox59"></label><strong>第9章 2つの系の間の平衡</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">9.1 エントロピーの間の不等式</label></li>
+				<li><input type="checkbox" id="checkbox61"><label for="checkbox61">9.2 熱の交換が可能な単純系の間の温度の一致</label></li>
+				<li><input type="checkbox" id="checkbox62"><label for="checkbox62">9.3 2つの系の狭義示強変数の一致―一般の場合</label></li>
+				<li><input type="checkbox" id="checkbox63"><label for="checkbox63">9.4 部分系のマクロ変数の平衡値の決定法</label></li>
+				<li><input type="checkbox" id="checkbox64"><label for="checkbox64">9.5 エネルギー最小の原理</label></li>
+				<li><input type="checkbox" id="checkbox65"><label for="checkbox65">9.6
+						熱力学的に定義された圧力が力学的に定義された圧力と等しいこと</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox66"><label for="checkbox66"></label><strong>第10章 エントロピー増大則</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox67"><label for="checkbox67">10.1 孤立系のエントロピーの変化</label></li>
+				<li><input type="checkbox" id="checkbox68"><label for="checkbox68">10.2 部分系のエントロピーの変化</label></li>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">10.3 熱の移動の向き</label></li>
+				<li><input type="checkbox" id="checkbox70"><label for="checkbox70">10.4 可逆過程と不可逆過程</label></li>
+				<li><input type="checkbox" id="checkbox71"><label for="checkbox71">10.5 熱とエントロピー</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox72"><label for="checkbox72"></label><strong>第11章 熱と仕事の変換</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox73"><label for="checkbox73">11.1 サイクル過程とその効率</label></li>
+				<li><input type="checkbox" id="checkbox74"><label for="checkbox74">11.2 熱浴と Clausius の不等式</label></li>
+				<li><input type="checkbox" id="checkbox75"><label for="checkbox75">11.3 仕事から熱への変換</label></li>
+				<li><input type="checkbox" id="checkbox76"><label for="checkbox76">11.4 熱から仕事への変換</label></li>
+				<li><input type="checkbox" id="checkbox77"><label for="checkbox77">11.5 熱を低温系から高温系へと流す</label></li>
+				<li><input type="checkbox" id="checkbox78"><label for="checkbox78">11.6 関連する事項</label></li>
+				<li><input type="checkbox" id="checkbox79"><label for="checkbox79">11.7 遷移に関する予言能力について</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox80"><label for="checkbox80"></label><strong>第12章 ルジャンドル変換</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox81"><label for="checkbox81">12.1 やりたいこと</label></li>
+				<li><input type="checkbox" id="checkbox82"><label for="checkbox82">12.2 何回でも微分可能で微係数が強単調な場合</label></li>
+				<li><input type="checkbox" id="checkbox83"><label for="checkbox83">12.3 1変数の凸関数のルジャンドル変換―一般の場合</label>
+				</li>
+				<li><input type="checkbox" id="checkbox84"><label for="checkbox84">12.4 多変数の凸関数のルジャンドル変換―一般の場合</label>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox85"><label for="checkbox85"></label><strong>第13章 他の表示への変換</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox86"><label for="checkbox86">13.1 概要</label></li>
+				<li><input type="checkbox" id="checkbox87"><label for="checkbox87">13.2 Helmholtz エネルギー</label></li>
+				<li><input type="checkbox" id="checkbox88"><label for="checkbox88">13.3 Gibbs エネルギー</label></li>
+				<li><input type="checkbox" id="checkbox89"><label for="checkbox89">13.4 相転移と TVN 表示・TPN 表示</label></li>
+				<li><input type="checkbox" id="checkbox90"><label for="checkbox90">13.5 Euler の関係式と Gibbs-Duhem
+						関係式</label></li>
+				<li><input type="checkbox" id="checkbox91"><label for="checkbox91">13.6 様々な熱力学関数</label></li>
+				<li><input type="checkbox" id="checkbox92"><label for="checkbox92">13.7 Maxwell の関係式</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox93"><label for="checkbox93"></label><strong>第14章 大きな系・小さな系</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox94"><label for="checkbox94">14.1 定積熱容量</label></li>
+				<li><input type="checkbox" id="checkbox95"><label for="checkbox95">14.2 定圧熱容量</label></li>
+				<li><input type="checkbox" id="checkbox96"><label for="checkbox96">14.3 溜</label></li>
+				<li><input type="checkbox" id="checkbox97"><label for="checkbox97">14.4 熱浴に浸かった系</label></li>
+				<li><input type="checkbox" id="checkbox98"><label for="checkbox98">14.5 様々な熱力学関数の最小原理と最大仕事の原理</label>
+				</li>
+				<li><input type="checkbox" id="checkbox99"><label for="checkbox99">14.6 狭義示強変数の測定器</label></li>
+				<li><input type="checkbox" id="checkbox100"><label for="checkbox100">14.7 エントロピーを測る</label></li>
+				<li><input type="checkbox" id="checkbox101"><label for="checkbox101">14.8 溜を用いた仕事の定義の拡張</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

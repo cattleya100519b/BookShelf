@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>フランス語統辞法</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a href="https://www.hakusuisha.co.jp/book/b651079.html">フランス語統辞法</a></li>
+		<li>Purchase Date: 2024/10/22 (amazon)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<h3 id="%E5%BA%8F%E8%AA%AC">序説</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox0"><label for="checkbox0">第1章 ことば</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">2</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">3</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox4"><label for="checkbox4">第2章 文</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">1</label></li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">2</label></li>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">3</label></li>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">4</label></li>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">5</label></li>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">6</label></li>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">7</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h3 id="i-%E6%96%87%E3%81%AE%E4%B8%BB%E8%A6%81%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0">I 文の主要構成要素</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox12"><label for="checkbox12">第3章 主語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox13"><label for="checkbox13">1</label></li>
+				<li><input type="checkbox" id="checkbox14"><label for="checkbox14">2</label></li>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">3</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">4</label></li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">5</label></li>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">6</label></li>
+				<li><input type="checkbox" id="checkbox19"><label for="checkbox19">7</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox20"><label for="checkbox20">第4章 述語動詞</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">1</label></li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">2</label></li>
+				<li><input type="checkbox" id="checkbox23"><label for="checkbox23">3</label></li>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">4</label></li>
+				<li><input type="checkbox" id="checkbox25"><label for="checkbox25">5</label></li>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">6</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">7</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox28"><label for="checkbox28">第5章 直接・間接目的補語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">1</label></li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">2</label></li>
+				<li><input type="checkbox" id="checkbox31"><label for="checkbox31">3</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox32"><label for="checkbox32">第6章 第二目的補語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">1</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">2</label></li>
+				<li><input type="checkbox" id="checkbox35"><label for="checkbox35">3</label></li>
+				<li><input type="checkbox" id="checkbox36"><label for="checkbox36">4</label></li>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">5</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">6</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox39"><label for="checkbox39">第7章 属詞</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox40"><label for="checkbox40">1</label></li>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">2</label></li>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">3</label></li>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">4</label></li>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">5</label></li>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">6</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox46"><label for="checkbox46">第8章 状況補語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">1</label></li>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">2</label></li>
+				<li><input type="checkbox" id="checkbox49"><label for="checkbox49">3</label></li>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">4</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox51"><label for="checkbox51">第9章 連結要素と独立要素</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox52"><label for="checkbox52">1</label></li>
+				<li><input type="checkbox" id="checkbox53"><label for="checkbox53">2</label></li>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">3</label></li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">4</label></li>
+				<li><input type="checkbox" id="checkbox56"><label for="checkbox56">5</label></li>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">6</label></li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">7</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h3 id="ii-%E4%B8%BB%E8%BE%9E%E3%81%A8%E9%99%90%E5%AE%9A%E8%BE%9E">II 主辞と限定辞</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox59"><label for="checkbox59">第10章 名詞の補語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">1</label></li>
+				<li><input type="checkbox" id="checkbox61"><label for="checkbox61">2</label></li>
+				<li><input type="checkbox" id="checkbox62"><label for="checkbox62">3</label></li>
+				<li><input type="checkbox" id="checkbox63"><label for="checkbox63">4</label></li>
+				<li><input type="checkbox" id="checkbox64"><label for="checkbox64">5</label></li>
+				<li><input type="checkbox" id="checkbox65"><label for="checkbox65">6</label></li>
+				<li><input type="checkbox" id="checkbox66"><label for="checkbox66">7</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox67"><label for="checkbox67">第11章 代名詞の補語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox68"><label for="checkbox68">1</label></li>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">2</label></li>
+				<li><input type="checkbox" id="checkbox70"><label for="checkbox70">3</label></li>
+				<li><input type="checkbox" id="checkbox71"><label for="checkbox71">4</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox72"><label for="checkbox72">第12章 形容詞の補語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox73"><label for="checkbox73">1</label></li>
+				<li><input type="checkbox" id="checkbox74"><label for="checkbox74">2</label></li>
+				<li><input type="checkbox" id="checkbox75"><label for="checkbox75">3</label></li>
+				<li><input type="checkbox" id="checkbox76"><label for="checkbox76">4</label></li>
+				<li><input type="checkbox" id="checkbox77"><label for="checkbox77">5</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox78"><label for="checkbox78">第13章 副詞の補語</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox79"><label for="checkbox79">1</label></li>
+				<li><input type="checkbox" id="checkbox80"><label for="checkbox80">2</label></li>
+				<li><input type="checkbox" id="checkbox81"><label for="checkbox81">3</label></li>
+				<li><input type="checkbox" id="checkbox82"><label for="checkbox82">4</label></li>
+				<li><input type="checkbox" id="checkbox83"><label for="checkbox83">5</label></li>
+			</ul>
+		</li>
+	</ul>
+	<h3 id="iii-%E6%96%87%E3%81%AE%E7%A8%AE%E9%A1%9E">III 文の種類</h3>
+	<ul>
+		<li><input type="checkbox" id="checkbox84"><label for="checkbox84">第14章 単文と複文: 単文</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox85"><label for="checkbox85">1</label></li>
+				<li><input type="checkbox" id="checkbox86"><label for="checkbox86">2</label></li>
+				<li><input type="checkbox" id="checkbox87"><label for="checkbox87">3</label></li>
+				<li><input type="checkbox" id="checkbox88"><label for="checkbox88">4</label></li>
+				<li><input type="checkbox" id="checkbox89"><label for="checkbox89">5</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox90"><label for="checkbox90">第15章 単文と複文: 並置節と等位節</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox91"><label for="checkbox91">1</label></li>
+				<li><input type="checkbox" id="checkbox92"><label for="checkbox92">2</label></li>
+				<li><input type="checkbox" id="checkbox93"><label for="checkbox93">3</label></li>
+				<li><input type="checkbox" id="checkbox94"><label for="checkbox94">4</label></li>
+				<li><input type="checkbox" id="checkbox95"><label for="checkbox95">5</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox96"><label for="checkbox96">第16章 単文と複文: 名詞節</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox97"><label for="checkbox97">1</label></li>
+				<li><input type="checkbox" id="checkbox98"><label for="checkbox98">2</label></li>
+				<li><input type="checkbox" id="checkbox99"><label for="checkbox99">3</label></li>
+				<li><input type="checkbox" id="checkbox100"><label for="checkbox100">4</label></li>
+				<li><input type="checkbox" id="checkbox101"><label for="checkbox101">5</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox102"><label for="checkbox102">第17章 単文と複文: 形容詞節</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox103"><label for="checkbox103">1</label></li>
+				<li><input type="checkbox" id="checkbox104"><label for="checkbox104">2</label></li>
+				<li><input type="checkbox" id="checkbox105"><label for="checkbox105">3</label></li>
+				<li><input type="checkbox" id="checkbox106"><label for="checkbox106">4</label></li>
+				<li><input type="checkbox" id="checkbox107"><label for="checkbox107">5</label></li>
+				<li><input type="checkbox" id="checkbox108"><label for="checkbox108">6</label></li>
+				<li><input type="checkbox" id="checkbox109"><label for="checkbox109">7</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox110"><label for="checkbox110">第18章 単文と複文: 副詞節</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox111"><label for="checkbox111">1</label></li>
+				<li><input type="checkbox" id="checkbox112"><label for="checkbox112">2</label></li>
+				<li><input type="checkbox" id="checkbox113"><label for="checkbox113">3</label></li>
+				<li><input type="checkbox" id="checkbox114"><label for="checkbox114">4</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox115"><label for="checkbox115">第19章 単文と複文: 挿入節（話法）</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox116"><label for="checkbox116">1</label></li>
+				<li><input type="checkbox" id="checkbox117"><label for="checkbox117">2</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox118"><label for="checkbox118">第20章 文の種類: 否定文</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox119"><label for="checkbox119">1</label></li>
+				<li><input type="checkbox" id="checkbox120"><label for="checkbox120">2</label></li>
+				<li><input type="checkbox" id="checkbox121"><label for="checkbox121">3</label></li>
+				<li><input type="checkbox" id="checkbox122"><label for="checkbox122">4</label></li>
+				<li><input type="checkbox" id="checkbox123"><label for="checkbox123">5</label></li>
+				<li><input type="checkbox" id="checkbox124"><label for="checkbox124">6</label></li>
+				<li><input type="checkbox" id="checkbox125"><label for="checkbox125">7</label></li>
+				<li><input type="checkbox" id="checkbox126"><label for="checkbox126">8</label></li>
+				<li><input type="checkbox" id="checkbox127"><label for="checkbox127">9</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox128"><label for="checkbox128">第21章 文の種類: 疑問文, 命令文, 感嘆文</label>
+			<ul>
+				<li><input type="checkbox" id="checkbox129"><label for="checkbox129">1</label></li>
+				<li><input type="checkbox" id="checkbox130"><label for="checkbox130">2</label></li>
+				<li><input type="checkbox" id="checkbox131"><label for="checkbox131">3</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

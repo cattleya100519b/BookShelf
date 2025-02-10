@@ -1,0 +1,330 @@
+## Book
+- [フランス語解釈法](https://www.hakusuisha.co.jp/book/b645018.html)
+- Purchase Date: 2024/10/22 (amazon)
+
+## CheckList
+### 第1部 基礎篇
+- [ ] **第1章 比較**
+    - [ ] 1.0 比較の意味
+    - [ ] 1.1-0 普通の比較
+    - [ ] 1.1-1 même, mêmement (古) の場合
+    - [ ] 1.1-2a 質、量の同等
+    - [ ] 1.1-2b Autant [tant]
+    - [ ] 1.1-2c Comme
+    - [ ] 1.1-2d Aussi と autant の逆比較
+    - [ ] 1.1-3a 一致、類似、比喩
+    - [ ] 1.1-3b Autant que, aussi que, pas plus que, ainsi que + si
+    - [ ] 1.1-3c Ainsi que
+    - [ ] 1.1-3d De même que
+    - [ ] 1.1-3e À la façon de, à la manière de
+    - [ ] 1.1-3f On dirait, on aurait dit, on eût dit
+    - [ ] 1.1-4a 相違、不同、不等
+    - [ ] 1.1-4b Moins に関する注意
+    - [ ] 1.1-4c Ne pas plus [moins]... que
+    - [ ] 1.1-4d Autre と autrement の特殊の用法
+    - [ ] 1.1-4e Auprès de, près de, à côté de
+    - [ ] 1.1-5 選択
+    - [ ] 1.2-0 相対最上級
+    - [ ] 1.2-1a 相対最上級の定冠詞の省略
+    - [ ] 1.2-1b 所有形容詞を有する時
+    - [ ] 1.2-1c Ce qu'il y a de plus beau の場合
+    - [ ] 1.2-2a 相対最上級の特殊な意味
+    - [ ] 1.2-2b 選択の意
+    - [ ] 1.2-2c 譲歩の意
+    - [ ] 1.2-2d 強度的表現
+    - [ ] 1.3-0 強度
+    - [ ] 1.3-1a 比較の用語を用いる場合
+    - [ ] 1.3-1b Même
+    - [ ] 1.3-1c Autant que possible, aussi ... que possible
+    - [ ] 1.3-1d Comme
+    - [ ] 1.3-1e On ne peut plus
+    - [ ] 1.3-1f (Tout) ce que...de plus [moins, mieux]
+    - [ ] 1.3-1g Des plus, des moins, un des
+    - [ ] 1.3-2a その他の方法によるもの
+    - [ ] 1.3-2b S'il en fut
+    - [ ] 1.3-2c Être d'un [une] + 名詞
+    - [ ] 1.3-2d A + 名詞 [動詞不定形]
+    - [ ] 1.4-0 比例
+    - [ ] 1.4-1 Plus [moins] ... (et) plus [moins]
+    - [ ] 1.4-2 À mesure que [au fur et à mesure que]
+    - [ ] 1.4-3 De plus en plus...
+    - [ ] 1.4-4 D'autant plus [moins] que ...plus [moins]
+    - [ ] 1.4-5 A est à B ce que [comme] C est à D
+    - [ ] 1.4-6 Selon que, suivant que...
+
+- [ ] **第2章 強調**
+    - [ ] 2.0 強調の意味
+    - [ ] 2.1-0 C'est...qui [que]
+    - [ ] 2.1-1 C'est...qui 主語の強調
+    - [ ] 2.1-2a C'est...que
+    - [ ] 2.1-2b 属詞の強調
+    - [ ] 2.1-2c 直接目的補語の強調
+    - [ ] 2.1-2d 間接目的補語の強調
+    - [ ] 2.1-2e 状況補語の強調
+    - [ ] 2.2-0 Voici, voilà
+    - [ ] 2.2-1 Voici que, voilà que
+    - [ ] 2.3-0 繰り返し
+    - [ ] 2.3-1 属詞の繰り返し
+    - [ ] 2.3-2a 目的補語の繰り返し
+    - [ ] 2.3-2b 直接目的補語の繰り返し
+    - [ ] 2.3-2c 間接目的補語の繰り返し
+    - [ ] 2.3-3 所有形容詞の繰り返し
+    - [ ] 2.3-4a 文頭に遊離による強調
+    - [ ] 2.3-4b 主語の強調
+    - [ ] 2.3-4c 目的補語の強調
+    - [ ] 2.3-4d 動詞の強調
+    - [ ] 2.3-4e 属詞の強調
+    - [ ] 2.4 同語反覆
+    - [ ] 2.5 付加形容詞の位置の転換
+    - [ ] 2.6-1 疑問文の形をとる場合
+    - [ ] 2.6-2 感嘆文の形をとる場合
+    - [ ] 2.7 属詞・状況補語などの倒置
+    - [ ] 2.8 同格のde
+    - [ ] 2.9-0 緩和の意味
+    - [ ] 2.9-1a 単純未来による場合
+    - [ ] 2.9-1b 命令の緩和
+    - [ ] 2.9-1c 儀礼的未来
+    - [ ] 2.9-2a 前未来による場合
+    - [ ] 2.9-2b 過去の事実の推測
+    - [ ] 2.9-2c 命令の緩和
+    - [ ] 2.9-3 半過去による場合
+    - [ ] 2.9-4 条件法による場合
+    - [ ] 2.9-5 二重否定による場合
+    - [ ] 2.9-6 On の場合
+
+- [ ] **第3章 理由**
+    - [ ] 3.0-0 理由の意味
+    - [ ] 3.0-1 理由と目的との関係
+    - [ ] 3.0-2 理由を導く接続詞・句
+    - [ ] 3.1-1a Parce que
+    - [ ] 3.1-1b 問いと答えとの間に照応のずれがある場合
+    - [ ] 3.1-1c 感嘆文的に用いられる場合
+    - [ ] 3.1-1d Pourquoi の代りに用いられる parce que
+    - [ ] 3.1-1e Ce n'est pas une raison pour...parce que
+    - [ ] 3.1-1f Non (pas) (parce) que... mais...
+    - [ ] 3.1-2a Puisque
+    - [ ] 3.1-2b Parce queとpuisque の相違
+    - [ ] 3.1-2c Parce que, puisque について
+    - [ ] 3.1-2d Puisque の持つニュアンス
+    - [ ] 3.1-2e 主節と理由節との関係に見えながら、そうでない場合
+    - [ ] 3.2-0 現在分詞形、ジェロンディフによる場合
+    - [ ] 3.2-1 現在分詞形
+    - [ ] 3.2-2 絶対分詞形節
+    - [ ] 3.2-3 ジェロンディフ
+    - [ ] 3.3-0 前置詞+不定形,前置詞+名詞
+    - [ ] 3.3-1a Deの場合
+    - [ ] 3.3-1b De+不定形
+    - [ ] 3.3-1c De+名詞
+    - [ ] 3.3-2a Àの場合
+    - [ ] 3.3-2b À+不定形
+    - [ ] 3.3-2c À+名詞
+    - [ ] 3.3-3a Pour の場合
+    - [ ] 3.3-3b Pour+不定形
+    - [ ] 3.3-3c 目的を表わす pourとの関係
+    - [ ] 3.3-3d Pour+名詞
+    - [ ] 3.3-4 Par の場合
+    - [ ] 3.3-5 Avec の場合
+    - [ ] 3.4 ..., tant...; ..., tellement
+    - [ ] 3.5-0 形容詞+ que [comme] +主語+動詞による場合
+    - [ ] 3.5-1 形容詞 que+主語+動詞
+    - [ ] 3.5-2 形容詞 comme+主語+動詞
+    - [ ] 3.6-0 C'est que による場合
+    - [ ] 3.6-1 C'est que = c'est parce que
+    - [ ] 3.6-2 Si..., c'est que
+    - [ ] 3.7 関係節が理由を表わす場合
+    - [ ] 3.8-1 単に並置された節・文が理由を表わす場合
+    - [ ] 3.8-2 つづき
+    - [ ] 3.9-0 名詞,形容詞,過去分詞形が理由を表わす場合
+
+- [ ] **第4章 結果**
+    - [ ] 4.0 結果の意味
+    - [ ] 4.1-1 結果節を導く接続詞・句
+    - [ ] 4.1-2 Par conséquent と c'est pourquoi
+    - [ ] 4.1-3 Aussi
+    - [ ] 4.1-4 D'où
+    - [ ] 4.2-0 Si [tellement, tant, tel] ... que...
+    - [ ] 4.2-1 Si [tellement]+形容詞+ que...
+    - [ ] 4.2-2 Tellement, tant が動詞を修飾する場合
+    - [ ] 4.2-3 Tellement [tant] de+名詞+ que
+    - [ ] 4.2-4 Tel+名詞+que
+    - [ ] 4.3 Si bien que
+    - [ ] 4.4-0 Assez, trop が pourと共に用いられる場合
+    - [ ] 4.4-1 Assez...pour (que) と trop ...pour (que)
+    - [ ] 4.4-2 Assez...pour (que) ne pas
+    - [ ] 4.4-3 Ne pas assez...pour (que) と ne pas assez...pour (que) ne (pas)
+    - [ ] 4.5 Au point que [à ce point que, à tel point que], au point de +不定形
+    - [ ] 4.6-0 En sorte que, de sorte que, de façon que, de manière que
+    - [ ] 4.6-1 上の語法が結果を表わす場合と目的を表わす場合
+    - [ ] 4.6-2 En sorte de, de manière à, de façon à + 不定形
+    - [ ] 4.7-0 Sans による場合
+    - [ ] 4.7-1 Sans que +接続法,Sans +不定形
+    - [ ] 4.7-2 ...ne pas...sans que + 接続法....ne pas...sans+不定形
+    - [ ] 4.7-3 Ne pas....que ne + 接続法。
+    - [ ] 4.8-0 Pour による場合
+    - [ ] 4.8-1 Pour+不定形
+    - [ ] 4.8-2 Pour+名詞
+    - [ ] 4.9 単に並置された節・文が結果を表わす場合
+
+- [ ] **第5章 仮定**
+    - [ ] 5.0 仮定の意味
+    - [ ] 5.1-0 可能な仮定
+    - [ ] 5.1-1 現在に対する可能な仮定
+    - [ ] 5.1-2 過去に対する可能な仮定
+    - [ ] 5.2 不可能な仮定
+    - [ ] 5.3 可能な仮定に条件法が用いられる場合
+    - [ ] 5.4-0 Siの用法
+    - [ ] 5.4-1 形の上からは主節と条件節の関係にあるように見えながら、そうでない場合がある
+    - [ ] 5.4-2 Si...et que + 接続法と Si ...et si...
+    - [ ] 5.4-3 条件節の主語、動詞その他が省略された場合
+    - [ ] 5.4-4 C'est...si....
+    - [ ] 5.4-5 C'est à peine si...
+    - [ ] 5.4-6 Si のその他の用法
+    - [ ] 5.5 命令形に置かれた節・文が仮定を表わす場合
+    - [ ] 5.6 直説法動詞を疑問体に置いて仮定を表わす場合
+    - [ ] 5.7-0 現在分詞形、ジェロンディフが仮定を表わす場合
+    - [ ] 5.7-1 現在分詞形の場合
+    - [ ] 5.7-2 絶対分詞形節の場合
+    - [ ] 5.7-3 ジェロンディフ
+    - [ ] 5.8-0 過去分詞形,形容詞,名詞が仮定を表わす場合
+    - [ ] 5.8-1 過去分詞形
+    - [ ] 5.8-2 絶対分詞形節
+    - [ ] 5.8-3 形容詞
+    - [ ] 5.8-4 名詞
+    - [ ] 5.9-0 関係節に条件法が用いられて仮定を表わす場合
+    - [ ] 5.9-1 関係詞が関係節の主語である場合
+    - [ ] 5.9-2 関係詞が関係節の補語である場合
+    - [ ] 5.10-0 ...条件法... (que)...条件法... が仮定を表わす場合
+    - [ ] 5.10-1 ...条件法... ...条件法...
+    - [ ] 5.10-2 ...条件法... que ...条件法
+    - [ ] 5.10-3 条件節の主語と動詞が倒置される場合
+    - [ ] 5.11-0 Que+接続法が仮定を表わす場合
+    - [ ] 5.11-1 Que+接続法現在形
+    - [ ] 5.11-2 Que +接続法半過去形
+    - [ ] 5.12-0 前置詞+不定形,前置詞+名詞が仮定を表わす場合
+    - [ ] 5.12-1 前置詞+不定形
+    - [ ] 5.12-2 前置詞+名詞
+    - [ ] 5.13 副詞,副詞句が仮定を表わす場合
+    - [ ] 5.14-0 仮定を表わす文・節・語[句]を全く欠くか、あるいは仮定が主語にこめられている場合
+    - [ ] 5.14-1 仮定を表わす文・節・語[句]を全く欠く場合
+    - [ ] 5.14-2 仮定が主語にこめられている場合
+
+- [ ] **第6章 対立**
+    - [ ] 6.0 対立の観念
+    - [ ] 6.1 対立を表わす連繋詞
+    - [ ] 6.2-0 対立を表わす特殊な言い回し
+    - [ ] 6.2-1a 連繋詞のない場合
+    - [ ] 6.2-1b Ponctuations による場合
+    - [ ] 6.2-1c 動詞の時制による場合
+    - [ ] 6.2-2 接続詞 «et»
+    - [ ] 6.2-3 関係代名詞による場合
+    - [ ] 6.2-4a 状況補語による場合
+    - [ ] 6.2-4b 前置詞による場合
+    - [ ] 6.2-4c 現在分詞、ジェロンディフによる場合
+    - [ ] 6.2-5 Tout...que [comme]
+    - [ ] 6.2-6 Si...
+    - [ ] 6.2-7 ...n'en...pas moins
+    - [ ] 6.2-8 Sans doute [il est vrai, bien, certes, j'en conviens, etc.] ... mais (cependant)
+    - [ ] 6.2-9 〈時〉 または 〈場所〉の連繋詞
+    - [ ] 6.2-10 その他、対立を表わす特別な言いまわし
+
+- [ ] **第7章 仮定的譲歩**
+    - [ ] 7.1 仮定的譲歩の意味
+    - [ ] 7.2 仮定的譲歩の内容
+    - [ ] 7.3 仮定的譲歩を表わす普通の方法
+    - [ ] 7.4 Tout ... que...
+    - [ ] 7.5-1 Même si..., si même...
+    - [ ] 7.5-2 Si...
+    - [ ] 7.6-1 Quand même
+    - [ ] 7.6-2 Quand...
+    - [ ] 7.7-0 連繋詞のない場合
+    - [ ] 7.7-1 条件法の動詞
+    - [ ] 7.7-2 接続詞 «que» の挿入
+    - [ ] 7.7-3 条件法の動詞と主語の倒置
+    - [ ] 7.7-4 条件法過去第二形
+    - [ ] 7.7-5 条件法現在第二形
+    - [ ] 7.7-6 Avoir beau+不定形
+    - [ ] 7.8-0 選択の観念を含む譲歩
+    - [ ] 7.8-1 (Que+接続法の動詞) の繰り返し
+    - [ ] 7.8-2 (Que+接続法の動詞) 節中での選択
+    - [ ] 7.9-0 特に譲歩を表わさない節による譲歩
+    - [ ] 7.9-1 命令法
+    - [ ] 7.9-2 直説法単純未来
+    - [ ] 7.9-3 Que+接続法現在形
+    - [ ] 7.9-4 接続法の動詞と主語の倒置
+    - [ ] 7.10-0 とくに譲歩節を用いない譲歩
+    - [ ] 7.10-1 主語
+    - [ ] 7.10-2 関係節
+    - [ ] 7.10-3 最上級
+    - [ ] 7.10-4 前置詞
+    - [ ] 7.10-5 分詞・ジェロンディフ
+
+- [ ] **第8章 その他の諸関係**
+    - [ ] 8.0 概説
+    - [ ] 8.1-1a Et
+    - [ ] 8.1-1b 三つ以上の列挙
+    - [ ] 8.1-1c Et...et...
+    - [ ] 8.1-2a À la fois
+    - [ ] 8.1-2b ... et ... à la fois
+    - [ ] 8.1-2c À la fois... et ...
+    - [ ] 8.1-2d ... à la fois et ...
+    - [ ] 8.1-3 Non [ne... pas] seulement
+    - [ ] 8.1-4 Ne... pas que ...
+    - [ ] 8.1-5a Ni
+    - [ ] 8.1-5b Ne... pas ... ni ...
+    - [ ] 8.1-5c Ne... ni ... ni ... ni ... ni ... ne
+    - [ ] 8.1-5d Ne... ni ne
+    - [ ] 8.1-6 Non plus
+    - [ ] 8.2-1a Ou
+    - [ ] 8.2-1b Ou... ou
+    - [ ] 8.2-2 Soit... soit
+    - [ ] 8.3-1 Que
+    - [ ] 8.3-2a Ne...que に関する注意
+    - [ ] 8.3-2b «Ne... rien que ...» rien que
+    - [ ] 8.3-2c Ne...que... と主語
+    - [ ] 8.3-2d Ne...que... と動詞
+    - [ ] 8.3-3 Si ce n'est...: sinon...
+    - [ ] 8.3-4 À ... près
+    - [ ] 8.4-1a 動詞と否定副詞
+    - [ ] 8.4-1b Vouloir と否定動詞
+    - [ ] 8.4-1c Falloir と否定副詞
+    - [ ] 8.4-1d Devoir と否定副詞
+    - [ ] 8.4-1e 否定副詞の論理的位置の復活
+    - [ ] 8.4-2a 否定副詞と他の副詞の前後関係
+    - [ ] 8.4-2b Ne...+副詞+pas
+    - [ ] 8.4-2c Ne... pas+副詞
+    - [ ] 8.4-3 部分否定
+    - [ ] 8.4-4a 否定と目的・理由
+    - [ ] 8.4-4b Ne... pas pour (que)
+    - [ ] 8.4-4c Ne... pas parce que
+    
+### 第2部 応用篇
+- [ ] E. FROMENTIN, Dominique
+- [ ] E. FROMENTIN, Dominique
+- [ ] É. ZOLA, Au Bonheur des dames
+- [ ] É. ZOLA, Germinal
+- [ ] O. MIRBEAU, Le Journal d'une femme de chambre
+- [ ] A. FRANCE, Les Contes de Jacques Tournebroche
+- [ ] P. BOURGET, Une Idylle tragique
+- [ ] A GIDE, L'École des femmes
+- [ ] M. PROUST, Du côté de chez Swann
+- [ ] J. RIVIÈRE, Aimée
+- [ ] R. DORGELES, Les Croix de bois
+- [ ] F. MAURIAC, Le Désert de l'amour
+- [ ] J. ANOUILH. L'Hermine.
+- [ ] V. HUGO, Post-scriptum de ma vie
+- [ ] H.-F. AMIEL, Fragments d'un journal intime.
+- [ ] A. FRANCE, Le Jardin d'Épicure.
+- [ ] S. GUITRY, Réflexions et pensées
+- [ ] R. ROLLAND, Vie de Beethoven, Préface
+- [ ] A. GIDE, Feuillets inédits, 1924...
+- [ ] J. SCHLUMBERGER, Jalons
+- [ ] M. JOUHANDEAU, Remarques sur les visages
+- [ ] A. FRANCE, La Vie littéraire II
+- [ ] A. FOUILLÉE, Psychologie du peuple français.
+- [ ] F. MAURIAC, Romancier et ses personnages
+- [ ] CH. BAUDELAIRE, Petits poèmes en prose
+- [ ] A. GIDE, Les Nourritures terrestres
+- [ ] A GIDE, Les Nouvelles nourritures.
+- [ ] J. RENARD, Poil de Carotte
+- [ ] G. MARCEL, La Chapelle ardente.
+- [ ] J.-P. SARTRE, Les Mains sales

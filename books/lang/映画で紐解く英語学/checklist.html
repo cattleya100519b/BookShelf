@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>映画でひもとく英語学</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h1 id="%E6%98%A0%E7%94%BB%E3%81%A7%E3%81%B2%E3%82%82%E3%81%A8%E3%81%8F%E8%8B%B1%E8%AA%9E%E5%AD%A6">映画でひもとく英語学</h1>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a href="https://www.9640.jp/book_view/?917">映画でひもとく英語学</a></li>
+		<li>Purchase Date: 230822 (honto)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>1章　英文法と語法</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1.
+						ことばの選択制限について−多くの学習者が使えていない辞書の実践情報−</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">2.
+						動詞developの意外な使い方−良いものも悪いものも何でも「目立たせる」−</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">3.
+						固有名詞に冠詞が付く原理−冠詞のロジックは普通名詞でも固有名詞でも同じ−</label></li>
+				<li><input type="checkbox" id="checkbox4"><label for="checkbox4">4. 代名詞のone−1つではないoneの用法−</label></li>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">5. 節の代用を担うso/not−節を指す代名詞的役割−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">6. be different {from/than/to}
+						Xの再考−注視が必要な米変種のbe different than X−</label></li>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">7.
+						no＋比較級＋than−反義的な比較対象を要求する慣用表現−</label></li>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">8. 様態副詞−「どんな風に」は-ly副詞を使って表現−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">9. 文副詞−話題に対する個人的見解を-ly副詞を使って表現−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">10. フラット副詞−形を変えずに副詞になれる形容詞たち−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">11. 分離不定詞−不定詞の仲を裂く副詞の存在−</label></li>
+				<li><input type="checkbox" id="checkbox12"><label for="checkbox12">12. have toとmust−客観性を表すhave
+						toと主観性を表すmust−</label></li>
+				<li><input type="checkbox" id="checkbox13"><label for="checkbox13">13. ought to−話し手の焦燥感を表す助動詞−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox14"><label for="checkbox14">14. BE X TO（1）: be
+						to−変数Xがゼロの構文−</label></li>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">15. BE X TO（2）: be going toとbe about
+						to−変数Xが決める2つの未来表現の意味−</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">16. BE X TO（3）:be supposed toとbe
+						bound to−変数Xが決める2つの義務表現の意味−</label></li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">17. 現在形で表す未来−確定的未来を表す方法−</label></li>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">18.
+						現在進行形で表す未来−すでに下準備に入っていることを表す−</label></li>
+				<li><input type="checkbox" id="checkbox19"><label for="checkbox19">19.
+						未来進行形−主語や話し手の意図から切り離された未来の動作・状態−</label></li>
+				<li><input type="checkbox" id="checkbox20"><label for="checkbox20">20. speaking of
+						Xの談話機能−荒業もできる話題転換と展開の仕掛け−</label></li>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">Linguistic
+						Clapperboard：大きな数値の誤差を後付けで示す表現</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox22"><label for="checkbox22"></label><strong>2章　音声学</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox23"><label for="checkbox23">1. 標準米語と標準英語−発音の違い−</label></li>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">2. オーストラリア英語の特徴−米発音との違い−</label></li>
+				<li><input type="checkbox" id="checkbox25"><label for="checkbox25">3. リエゾン：音の連結−わけのわからない音の塊の正体−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">4.
+						同化：隣接した2音で第3の音を作る−yと同化したひとかたまりの音−</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">5. 弾音化したt−音色を変えて，もはや別の音−</label></li>
+				<li><input type="checkbox" id="checkbox28"><label for="checkbox28">6. 弱形−母音の音色まで変えてしまう現象−</label></li>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">7. 語尾の発音されない閉鎖音−くせもの /t/−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">8. 助動詞doの強調用法−否定的な想定を覆すdo−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox31"><label for="checkbox31">9.
+						強意再帰代名詞−いなくてもいいけど，いるとその存在は大きい「名脇役」−</label></li>
+				<li><input type="checkbox" id="checkbox32"><label for="checkbox32">10. 対照強勢−いつもとは違う音調が対照を知らせる−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">11. 問い返し疑問文−オウム返しで確認や意外感を表す−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">12. 擬音語−英語は動詞で音を表す−</label></li>
+				<li><input type="checkbox" id="checkbox35"><label for="checkbox35">Linguistic
+						Clapperboard：-neseや-teenの強勢は？</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox36"><label for="checkbox36"></label><strong>3章　形態論と音韻論</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">1. 第1類接辞−基体の音韻情報に影響を与える接辞−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">2.
+						接尾辞とアクセント−接尾辞で決まるアクセントの位置（1）−</label></li>
+				<li><input type="checkbox" id="checkbox39"><label for="checkbox39">3.
+						自ら強勢を担う接尾辞−接尾辞で決まるアクセントの位置（2）−</label></li>
+				<li><input type="checkbox" id="checkbox40"><label for="checkbox40">4. 動詞に付く接頭辞−動詞の用法を変化させる要素：out-,
+						re-を中心に−</label></li>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">5. 複合語−2つの単語が合体してできた語−</label></li>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">6. 混成語−2つの単語をツギハギしてできた語の形成法−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">7. 頭字語−頭文字を並べて作った2種類の略語−</label></li>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">8.
+						押韻反復−類似の響きを持つ語を重ねることば遊び的な強調の方法−</label></li>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">9.
+						語彙反復−同一語句を繰り返して「典型的な…」を意味する口語の対比強調表現−</label></li>
+				<li><input type="checkbox" id="checkbox46"><label for="checkbox46">10.
+						受動態の響きのある名詞−意味も発音も一風変わった仏語系の名詞−</label></li>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">11.
+						ゼロ派生の転換による動詞−動詞へと変貌を遂げる名詞と形容詞−</label></li>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">12.
+						逆成による名詞由来動詞−本来とは逆の「名詞⇒動詞」の語形成−</label></li>
+				<li><input type="checkbox" id="checkbox49"><label for="checkbox49">13.
+						X+過去分詞形式の複合形容詞−受動文の諸要素を変数Xに代入する複合形容詞−</label></li>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">Linguistic
+						Clapperboard：childやfootの複数形が不規則変化するようになった経緯</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox51"><label for="checkbox51"></label><strong>4章　統語論</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox52"><label for="checkbox52">1. 分裂文−いわゆるit … thatの強調構文−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox53"><label for="checkbox53">2. 擬似分裂文−強調したい表現が文末に現れる文−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">3.
+						様々な文型の受動文−be動詞＋過去分詞形＋by句以外の形の受け身−</label></li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">4.
+						句動詞からの受動文−前置詞句や副詞句の目的語を主語にした受け身−</label></li>
+				<li><input type="checkbox" id="checkbox56"><label for="checkbox56">5. 中間構文−受動態の意味を表す能動態−</label></li>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">6. tough（難易）構文−主語に現れる目的語 (1)−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">7. 遡及的動名詞構文−主語に現れる目的語 (2)−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox59"><label for="checkbox59">8. 話題化−情報の流れをスムーズにする文法操作−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">9.
+						転位−名詞（句）の移動と代名詞の挿入を組み合わせた文法操作−</label></li>
+				<li><input type="checkbox" id="checkbox61"><label for="checkbox61">10. 重名詞句転移−重い名詞句を後回しにする文法操作−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox62"><label for="checkbox62">11. 名詞句からの外置−名詞句を2分割する文法操作−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox63"><label for="checkbox63">12. 動詞句前置−原形動詞句を話題化移動した構文−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox64"><label for="checkbox64">13.
+						though移動−先行文脈を引き，前置し，自己主張につなげる譲歩−</label></li>
+				<li><input type="checkbox" id="checkbox65"><label for="checkbox65">14.
+						主語補語倒置−単なる文語表現ではなく，特殊効果のために反転させる文法操作−</label></li>
+				<li><input type="checkbox" id="checkbox66"><label for="checkbox66">15. 場所句倒置−文末主語に光をあてる構文−</label></li>
+				<li><input type="checkbox" id="checkbox67"><label for="checkbox67">16. 否定倒置構文−文頭に現れる否定辞−</label></li>
+				<li><input type="checkbox" id="checkbox68"><label for="checkbox68">17. 間接疑問文削除−削除される推測可能な節−</label></li>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">18. 多重wh疑問文−複数の疑問詞を含む疑問文−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox70"><label for="checkbox70">19. 随伴と前置詞残留−wh-句に前置詞が伴う時・残る時?
+						−</label></li>
+				<li><input type="checkbox" id="checkbox71"><label for="checkbox71">20. 前置詞+関係代名詞+to
+						不定詞−to不定詞が現れる関係節−</label></li>
+				<li><input type="checkbox" id="checkbox72"><label for="checkbox72">21.
+						数量詞遊離−離れた場所から名詞句を狙うallやboth−</label></li>
+				<li><input type="checkbox" id="checkbox73"><label for="checkbox73">22.
+						否定極性のlong−程度表現を伴えば否定・疑問環境だけの制限はなくなる−</label></li>
+				<li><input type="checkbox" id="checkbox74"><label for="checkbox74">Linguistic
+						Clapperboard：意味をとる範囲によって文意が変わる表現</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox75"><label for="checkbox75"></label><strong>5章　意味論と構文文法論</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox76"><label for="checkbox76">1. Go+ -ing−体の動きが大切な表現−</label></li>
+				<li><input type="checkbox" id="checkbox77"><label for="checkbox77">2.
+						変化を表すGoとCome−「ある状態」から「別の状態」に「なる」を表す移動動詞−</label></li>
+				<li><input type="checkbox" id="checkbox78"><label for="checkbox78">3. 軽動詞構文−補助役のhaveとtake−</label></li>
+				<li><input type="checkbox" id="checkbox79"><label for="checkbox79">4.
+						2種類の心理動詞−「恐れている」？　それとも「恐れさせられている」？−</label></li>
+				<li><input type="checkbox" id="checkbox80"><label for="checkbox80">5. 非能格動詞と非対格動詞−自動詞にも種類がある−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox81"><label for="checkbox81">6.
+						目的語とto不定詞をとる動詞−「人に…してほしいと思う」系か「人に…すると約束する」系か−</label></li>
+				<li><input type="checkbox" id="checkbox82"><label for="checkbox82">7.
+						there構文−存在と出現を表す用法：be動詞以外の動詞</label></li>
+				<li><input type="checkbox" id="checkbox83"><label for="checkbox83">8.
+						動能構文−行為が目的語に影響を及ぼすことに水を差すatやon−</label></li>
+				<li><input type="checkbox" id="checkbox84"><label for="checkbox84">9.
+						二重目的語構文−伝達・譲渡が確実に行われたことを示すSVOO文−</label></li>
+				<li><input type="checkbox" id="checkbox85"><label for="checkbox85">10.
+						与格構文−伝達・譲渡の方向をtoやforで示すSVOA文−</label></li>
+				<li><input type="checkbox" id="checkbox86"><label for="checkbox86">11.
+						自動詞移動構文−移動だけではなく様態も主役になる表現−</label></li>
+				<li><input type="checkbox" id="checkbox87"><label for="checkbox87">12.
+						動詞不変化詞構文−動詞の意味を補足する前置詞や副詞−</label></li>
+				<li><input type="checkbox" id="checkbox88"><label for="checkbox88">13.
+						他動詞移動構文−移動動詞を使わず人や物の移動を表す文型−</label></li>
+				<li><input type="checkbox" id="checkbox89"><label for="checkbox89">14. 使役構文−make, have,
+						letの使役動詞とget−</label></li>
+				<li><input type="checkbox" id="checkbox90"><label for="checkbox90">15. 使役結果構文−結果の解釈を含意する使役構文−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox91"><label for="checkbox91">16. 結果構文−行為と結果を単文で伝える効率的な表現−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox92"><label for="checkbox92">17. one’s
+						way構文−多彩な動詞と共に主語が辿る経路に焦点をあてる表現−</label></li>
+				<li><input type="checkbox" id="checkbox93"><label for="checkbox93">18.
+						time-away構文−私的な時間をのんびり過ごす表現−</label></li>
+				<li><input type="checkbox" id="checkbox94"><label for="checkbox94">19. 穴あけ構文−衝撃力のある動詞＋a
+						hole/holes＋3次元を表す前置詞句−</label></li>
+				<li><input type="checkbox" id="checkbox95"><label for="checkbox95">20.
+						描写述語−主語や目的語の状態を表す副詞ではない二次述語−</label></li>
+				<li><input type="checkbox" id="checkbox96"><label for="checkbox96">21.
+						強意句−誇張的な表現を使って程度のはなはだしさを伝える表現−</label></li>
+				<li><input type="checkbox" id="checkbox97"><label for="checkbox97">22. NPN構文−同じ名詞を繰り返した表現−</label></li>
+				<li><input type="checkbox" id="checkbox98"><label for="checkbox98">23. 度量句−物事を測る尺度に焦点をあてる副詞的名詞句−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox99"><label for="checkbox99">24. 場所の目的語−偉業や困難性を含意する自動詞表現−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox100"><label for="checkbox100">25.
+						場所格交替−前置詞句や目的語に現れる場所表現と意味の違い−</label></li>
+				<li><input type="checkbox" id="checkbox101"><label for="checkbox101">26.
+						焦点化詞修飾−離れた場所にあるものでも修飾するonlyやeven−</label></li>
+				<li><input type="checkbox" id="checkbox102"><label for="checkbox102">27.
+						身体部位所有者上昇構文−叩いたり蹴ったりするターゲットを2段階に分けて述べる表現−</label></li>
+				<li><input type="checkbox" id="checkbox103"><label for="checkbox103">28.
+						同族目的語構文−同じ意味の動詞と目的語で意味を深める表現−</label></li>
+				<li><input type="checkbox" id="checkbox104"><label for="checkbox104">29. JB-X
+						DM-Y構文−相手の推論を否定しながら自分の主張につなげる表現−</label></li>
+				<li><input type="checkbox" id="checkbox105"><label for="checkbox105">Linguistic
+						Clapperboard：使役動詞の分類−『アメイジング・スパイダーマン2』からの3使役動詞−</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox106"><label for="checkbox106"></label><strong>6章　言語と文化</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox107"><label for="checkbox107">1.
+						三人称単数の人称代名詞they−ジェンダー・ニュートラルな英語の一例−</label></li>
+				<li><input type="checkbox" id="checkbox108"><label for="checkbox108">2.
+						性差撤廃の一例−ジェンダー・フリーな職業名への移行−</label></li>
+				<li><input type="checkbox" id="checkbox109"><label for="checkbox109">3. フレーム−経験から得られる背景知識の枠組み−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox110"><label for="checkbox110">4.
+						メトニミー（換喩）−「大きなカツラ」が「重要人物」を表すのはなぜ？−</label></li>
+				<li><input type="checkbox" id="checkbox111"><label for="checkbox111">5.
+						死喩：姿・形を「投影」する言語活動−身体部位名詞の英単語活用術−</label></li>
+				<li><input type="checkbox" id="checkbox112"><label for="checkbox112">6.
+						存在のメタファー−姿・形のないものを存在物として捉える比喩−</label></li>
+				<li><input type="checkbox" id="checkbox113"><label for="checkbox113">7.
+						構造のメタファー−目標領域に具体的な構造を与える比喩−</label></li>
+				<li><input type="checkbox" id="checkbox114"><label for="checkbox114">8.
+						方向づけのメタファー−方向性の空間認識を活用する比喩−</label></li>
+				<li><input type="checkbox" id="checkbox115"><label for="checkbox115">9.
+						導管メタファー−「ことば」という容器に考えや意味を詰めて相手に送る比喩−</label></li>
+				<li><input type="checkbox" id="checkbox116"><label for="checkbox116">10. how come ... ?やwhy V ... ?
+						−話者の感情を込めて理由を尋ねる疑問文−</label></li>
+				<li><input type="checkbox" id="checkbox117"><label for="checkbox117">11.
+						過去形を使った丁寧表現−時制をずらして一歩距離を置くことで丁寧さを表す−</label></li>
+				<li><input type="checkbox" id="checkbox118"><label for="checkbox118">12.
+						垣根ことばの機能を持つ条件節−枕詞のように添えられるif節−</label></li>
+				<li><input type="checkbox" id="checkbox119"><label for="checkbox119">13. 発話媒介行為−特定の解釈を伴う慣用表現−</label>
+				</li>
+				<li><input type="checkbox" id="checkbox120"><label for="checkbox120">Linguistic
+						Clapperboard：心理的距離を表すthat−馴染みにないものに使える指示代名詞that−</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>入門 現代の力学</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h1 id="%E5%85%A5%E9%96%80-%E7%8F%BE%E4%BB%A3%E3%81%AE%E5%8A%9B%E5%AD%A6">入門 現代の力学</h1>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a href="https://www.kspub.co.jp/book/detail/5273920.html">入門 現代の力学</a></li>
+		<li>Purchase Date: 250328 (kinoppy)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>第1章 力学とは何か</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1.1 力学の学び方</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">1.2 物理量の次元</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">1.3 力学の法則</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox4"><label for="checkbox4"></label><strong>第2章 運動</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">2.1 デカルト座標</label></li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">2.2 運動のあらわし方</label></li>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">2.3 速度、加速度</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox8"><label for="checkbox8"></label><strong>第3章 ベクトル</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">3.1 ベクトルとベクトル場</label></li>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">3.2 内積</label></li>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">3.3 外積</label></li>
+				<li><input type="checkbox" id="checkbox12"><label for="checkbox12">3.4 ベクトル解析</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox13"><label for="checkbox13"></label><strong>第4章 空間上の微積分</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox14"><label for="checkbox14">4.1 関数とベクトル場の微分</label></li>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">4.2 ラプラシアン</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">4.3 直交曲線座標でのラプラシアン</label></li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">4.4 線績分</label></li>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">4.5 面積分</label></li>
+				<li><input type="checkbox" id="checkbox19"><label for="checkbox19">4.6 面積要素</label></li>
+				<li><input type="checkbox" id="checkbox20"><label for="checkbox20">4.7 曲面の取り扱い</label></li>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">4.8 体積要素</label></li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">4.9 グリーンの定理</label></li>
+				<li><input type="checkbox" id="checkbox23"><label for="checkbox23">4.10 ストークスの定理</label></li>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">4.11 発散定理</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox25"><label for="checkbox25"></label><strong>第5章 力学の基礎</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">5.1 エネルギー保存則</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">5.2 保存力</label></li>
+				<li><input type="checkbox" id="checkbox28"><label for="checkbox28">5.3 ガリレイの相対性原理</label></li>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">5.4 運動量の保存</label></li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">5.5 角運動量の保存</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox31"><label for="checkbox31"></label><strong>第6章 振動</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox32"><label for="checkbox32">6.1 連成振動</label></li>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">6.2 減衰振動</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">6.3 強制振動</label></li>
+				<li><input type="checkbox" id="checkbox35"><label for="checkbox35">6.4 等時的ポテンシャル</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox36"><label for="checkbox36"></label><strong>第7章 重力</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">7.1 2体問題</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">7.2 運動方程式</label></li>
+				<li><input type="checkbox" id="checkbox39"><label for="checkbox39">7.3 運動可能領域</label></li>
+				<li><input type="checkbox" id="checkbox40"><label for="checkbox40">7.4 惑星の軌道</label></li>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">7.5 惑星の周期</label></li>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">7.6 重力ポテンシャル</label></li>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">7.7 球殻のつくる重力</label></li>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">7.8 球対称な星の重力</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox45"><label for="checkbox45"></label><strong>第8章 質点系と剛体</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox46"><label for="checkbox46">8.1 重心の運動方程式</label></li>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">8.2 質点系の角運動量</label></li>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">8.3 一様重力場中の質点系の角運動量</label></li>
+				<li><input type="checkbox" id="checkbox49"><label for="checkbox49">8.4 剛体のつり合い</label></li>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">8.5 剛体の回転のエネルギー</label></li>
+				<li><input type="checkbox" id="checkbox51"><label for="checkbox51">8.6 剛体の角運動量</label></li>
+				<li><input type="checkbox" id="checkbox52"><label for="checkbox52">8.7 球体の慣性モーメント</label></li>
+				<li><input type="checkbox" id="checkbox53"><label for="checkbox53">8.8 坂を転がる球</label></li>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">8.9 壁に立てかけた棒</label></li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">8.10 打撃の中心</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox56"><label for="checkbox56"></label><strong>第9章 回転座標系</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">9.1 コリオリ力</label></li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">9.2 ターン・テーブル上のボーリング</label></li>
+				<li><input type="checkbox" id="checkbox59"><label for="checkbox59">9.3 フーコーの振り子</label></li>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">9.4 ラグランジュ・ポイント：直線解</label></li>
+				<li><input type="checkbox" id="checkbox61"><label for="checkbox61">9.5 ラグランジュ・ポイント：トロヤ解</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox62"><label for="checkbox62"></label><strong>第10章 力のつり合い</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox63"><label for="checkbox63">10.1 斜面をすべらない条件</label></li>
+				<li><input type="checkbox" id="checkbox64"><label for="checkbox64">10.2 床をすべらない条件</label></li>
+				<li><input type="checkbox" id="checkbox65"><label for="checkbox65">10.3 10円玉の積み方</label></li>
+				<li><input type="checkbox" id="checkbox66"><label for="checkbox66">10.4 両端でぶら下がっている鎖</label></li>
+				<li><input type="checkbox" id="checkbox67"><label for="checkbox67">10.5 アルキメデスの原理</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox68"><label for="checkbox68"></label><strong>第11章 一様重力での運動</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">11.1 斜方投射の軌道面積</label></li>
+				<li><input type="checkbox" id="checkbox70"><label for="checkbox70">11.2 粘性抵抗のある斜方投射</label></li>
+				<li><input type="checkbox" id="checkbox71"><label for="checkbox71">11.3 軌道の曲率</label></li>
+				<li><input type="checkbox" id="checkbox72"><label for="checkbox72">11.4 速度の方程式</label></li>
+				<li><input type="checkbox" id="checkbox73"><label for="checkbox73">11.5 斜方投射の軌道</label></li>
+				<li><input type="checkbox" id="checkbox74"><label for="checkbox74">11.6 慣性抵抗のある斜方投射</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox75"><label for="checkbox75"></label><strong>第12章 衝突</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox76"><label for="checkbox76">12.1 弾性衝突の条件</label></li>
+				<li><input type="checkbox" id="checkbox77"><label for="checkbox77">12.2 玉突き衝突</label></li>
+				<li><input type="checkbox" id="checkbox78"><label for="checkbox78">12.3 ビリヤード球の衝突</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox79"><label for="checkbox79"></label><strong>第13章 波の運動</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox80"><label for="checkbox80">13.1 弦の運動</label></li>
+				<li><input type="checkbox" id="checkbox81"><label for="checkbox81">13.2 弦の運動の初期値問題</label></li>
+				<li><input type="checkbox" id="checkbox82"><label for="checkbox82">13.3 球面波</label></li>
+				<li><input type="checkbox" id="checkbox83"><label for="checkbox83">13.4 波源からの波</label></li>
+				<li><input type="checkbox" id="checkbox84"><label for="checkbox84">13.5 平面上の波動とホイヘンスの原理</label></li>
+				<li><input type="checkbox" id="checkbox85"><label for="checkbox85">13.6 群速度</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox86"><label for="checkbox86"></label><strong>第14章 水の力学</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox87"><label for="checkbox87">14.1 連続の式</label></li>
+				<li><input type="checkbox" id="checkbox88"><label for="checkbox88">14.2 オイラーの運動方程式</label></li>
+				<li><input type="checkbox" id="checkbox89"><label for="checkbox89">14.3 ベルヌーイの定理</label></li>
+				<li><input type="checkbox" id="checkbox90"><label for="checkbox90">14.4 蛇口から出る水の速度</label></li>
+				<li><input type="checkbox" id="checkbox91"><label for="checkbox91">14.5 水の抵抗</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox92"><label for="checkbox92"></label><strong>第15章 雑多な問題たち</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox93"><label for="checkbox93">15.1 宇宙船の問題</label></li>
+				<li><input type="checkbox" id="checkbox94"><label for="checkbox94">15.2 すべり落ちる鎖</label></li>
+				<li><input type="checkbox" id="checkbox95"><label for="checkbox95">15.3 鎖の山から落ちる鎖</label></li>
+				<li><input type="checkbox" id="checkbox96"><label for="checkbox96">15.4 引き上げられる鎖</label></li>
+				<li><input type="checkbox" id="checkbox97"><label for="checkbox97">15.5 犬の散歩</label></li>
+				<li><input type="checkbox" id="checkbox98"><label for="checkbox98">15.6 光の屈折</label></li>
+				<li><input type="checkbox" id="checkbox99"><label for="checkbox99">15.7 最速降下問題</label></li>
+				<li><input type="checkbox" id="checkbox100"><label for="checkbox100">15.8 等時曲線</label></li>
+				<li><input type="checkbox" id="checkbox101"><label for="checkbox101">15.9 2つの円周を境界にもつシャボン玉</label></li>
+				<li><input type="checkbox" id="checkbox102"><label for="checkbox102">15.10 平衡点に到達できる？</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

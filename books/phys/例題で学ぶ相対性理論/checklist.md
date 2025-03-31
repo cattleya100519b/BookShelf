@@ -2,7 +2,7 @@
 
 ## Book
 - [例題で学ぶ相対性理論](https://www.nippyo.co.jp/shop/book/8835.html)
-- Purchase Date: YYMMDD ()
+- Purchase Date: 250330 (kinoppy)
 
 ## CheckList
 - [ ] **第１章　特殊相対性理論**  

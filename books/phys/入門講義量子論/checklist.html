@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>入門講義 量子論</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h1 id="%E5%85%A5%E9%96%80%E8%AC%9B%E7%BE%A9-%E9%87%8F%E5%AD%90%E8%AB%96">入門講義 量子論</h1>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a href="https://www.kspub.co.jp/book/detail/5328453.html">入門講義 量子論</a></li>
+		<li>Purchase Date: 250330 (kinoppy)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>第1章 量子の世界（概観）</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1.1 量子ワールド（量子の世界）</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">1.2 量子の振る舞いと量子論</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">1.3 量子論・量子力学の歴史</label></li>
+				<li><input type="checkbox" id="checkbox4"><label for="checkbox4">1.4 量子の性質と私たちの世界</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox5"><label for="checkbox5"></label><strong>第2章 光の本性</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">2.1 量子ワールド（光の国）</label></li>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">2.2 「光は電磁波」の結論まで：19世紀末までの進展</label>
+				</li>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">2.3 光の粒子性</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox9"><label for="checkbox9"></label><strong>第3章 電子の本性</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">3.1 量子ワールド（電子の国）</label></li>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">3.2 物質波とシュレーディンガー方程式</label></li>
+				<li><input type="checkbox" id="checkbox12"><label for="checkbox12">3.3 ディラック方程式</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox13"><label for="checkbox13"></label><strong>第4章 量子の世界</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox14"><label for="checkbox14">4.1 量子ワールド（量子の国）</label></li>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">4.2 量子の性質について</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">4.3 量子の種類</label></li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">4.4 量子の大別とその帰結</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox18"><label for="checkbox18"></label><strong>第5章 量子力学の世界</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox19"><label for="checkbox19">5.1 量子ワールド（量子力学の国）</label></li>
+				<li><input type="checkbox" id="checkbox20"><label for="checkbox20">5.2 不確定性原理</label></li>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">5.3 重ね合わせの原理</label></li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">5.4 量子もつれ状態</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox23"><label for="checkbox23"></label><strong>第6章 原子・分子の世界</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">6.1 量子ワールド（原子の国）</label></li>
+				<li><input type="checkbox" id="checkbox25"><label for="checkbox25">6.2 原子の構造</label></li>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">6.3 原子模型と量子力学</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">6.4 分子や物質の結合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox28"><label for="checkbox28"></label><strong>第7章 場の量子論の世界</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">7.1 量子ワールド（場の量子論の世界）</label></li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">7.2 「場」とその必要性</label></li>
+				<li><input type="checkbox" id="checkbox31"><label for="checkbox31">7.3 量子場の理論</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox32"><label for="checkbox32"></label><strong>第8章 物質の世界</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">8.1 量子ワールド（物質の国）</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">8.2 物質と量子力学</label></li>
+				<li><input type="checkbox" id="checkbox35"><label for="checkbox35">8.3 マクロの量子現象</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox36"><label for="checkbox36"></label><strong>第9章 素粒子の世界</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">9.1 量子ワールド（素粒子の国）</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">9.2 基本的な力と基本粒子</label></li>
+				<li><input type="checkbox" id="checkbox39"><label for="checkbox39">9.3 粒子の相互作用</label></li>
+				<li><input type="checkbox" id="checkbox40"><label for="checkbox40">9.4 標準模型（その光と影）</label></li>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">9.5 標準模型を超える理論</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox42"><label for="checkbox42"></label><strong>第10章 原子核の世界</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">10.1 量子ワールド（原子核の国）</label></li>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">10.2 核力と中間子</label></li>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">10.3 放射性同位元素（原子核の崩壊）</label></li>
+				<li><input type="checkbox" id="checkbox46"><label for="checkbox46">10.4 核融合と核分裂</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox47"><label for="checkbox47"></label><strong>第11章 宇宙と量子論</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">11.1 量子ワールド（宇宙の国）</label></li>
+				<li><input type="checkbox" id="checkbox49"><label for="checkbox49">11.2 元素の起源と宇宙</label></li>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">11.3 一般相対論と量子力学に基づく宇宙の理解</label></li>
+				<li><input type="checkbox" id="checkbox51"><label for="checkbox51">11.4 宇宙と素粒子物理学</label></li>
+				<li><input type="checkbox" id="checkbox52"><label for="checkbox52">11.5 量子重力理論</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox53"><label for="checkbox53"></label><strong>第12章 量子生物学</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">12.1 量子ワールド（量子生物学の世界）</label></li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">12.2 生物の量子現象</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox56"><label for="checkbox56"></label><strong>第13章 量子論・量子実験の進展と展望</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">13.1 量子ワールド（量子VRの世界）</label></li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">13.2 量子論の進展</label></li>
+				<li><input type="checkbox" id="checkbox59"><label for="checkbox59">13.3 量子実験の進展</label></li>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">13.4 まとめと展望</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox61"><label for="checkbox61"></label><strong>付録A 黒体放射の理論</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox62"><label for="checkbox62">A.1 黒体放射の式</label></li>
+				<li><input type="checkbox" id="checkbox63"><label for="checkbox63">A.2 プランクの放射公式の導出</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox64"><label for="checkbox64"></label><strong>付録B
+				ボーアの原子模型とシュレーディンガー方程式</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox65"><label for="checkbox65">B.1 ボーアの原子模型</label></li>
+				<li><input type="checkbox" id="checkbox66"><label for="checkbox66">B.2 波動関数とシュレーディンガー方程式</label></li>
+				<li><input type="checkbox" id="checkbox67"><label for="checkbox67">B.3 原子や分子のシュレーディンガー方程式</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox68"><label for="checkbox68"></label><strong>付録C 特殊相対性理論と運動方程式</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">C.1 特殊相対性理論</label></li>
+				<li><input type="checkbox" id="checkbox70"><label for="checkbox70">C.2 運動方程式</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox71"><label for="checkbox71"></label><strong>付録D
+				アインシュタイン方程式とビッグバン宇宙</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox72"><label for="checkbox72">D.1 アインシュタイン方程式</label></li>
+				<li><input type="checkbox" id="checkbox73"><label for="checkbox73">D.2 膨張宇宙</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

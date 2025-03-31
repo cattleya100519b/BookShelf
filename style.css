@@ -21,6 +21,10 @@ ul {
     font-size: 16px;
 }
 
+img {
+    height: 150px;
+}
+
 /* ダークモードのスタイル */
 @media (prefers-color-scheme: dark) {
     body {

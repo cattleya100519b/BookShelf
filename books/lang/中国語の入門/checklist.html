@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>中国語の入門</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h1 id="%E4%B8%AD%E5%9B%BD%E8%AA%9E%E3%81%AE%E5%85%A5%E9%96%80">中国語の入門</h1>
+	<h2 id="book">Book</h2>
+	<ul>
+		<img src="https://www.hakusuisha.co.jp//images/book/654962.jpg">
+		<li><a href="https://www.hakusuisha.co.jp/book/b654962.html">中国語の入門</a></li>
+		<li><a href="https://www.hakusuisha.co.jp/news/n59063.html">Sound</a></li>
+		<li>Purchase Date: 250406（ジュンク堂）</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>第1課 人称代名詞</strong></li>
+		<li><input type="checkbox" id="checkbox1"><label for="checkbox1"></label><strong>第2課 指示代名詞</strong></li>
+		<li><input type="checkbox" id="checkbox2"><label for="checkbox2"></label><strong>第3課 動詞述語文</strong></li>
+		<li><input type="checkbox" id="checkbox3"><label for="checkbox3"></label><strong>第4課 形容詞述語文</strong></li>
+		<li><input type="checkbox" id="checkbox4"><label for="checkbox4"></label><strong>第5課 (是)構文</strong></li>
+		<li><input type="checkbox" id="checkbox5"><label for="checkbox5"></label><strong>第6課 場所代名詞</strong></li>
+		<li><input type="checkbox" id="checkbox6"><label for="checkbox6"></label><strong>第7課 方位詞</strong></li>
+		<li><input type="checkbox" id="checkbox7"><label for="checkbox7"></label><strong>第8課 数詞</strong></li>
+		<li><input type="checkbox" id="checkbox8"><label for="checkbox8"></label><strong>第9課 量詞</strong></li>
+		<li><input type="checkbox" id="checkbox9"><label for="checkbox9"></label><strong>第10課 (吗)を使う疑問文</strong></li>
+		<li><input type="checkbox" id="checkbox10"><label for="checkbox10"></label><strong>第11課 形容詞を修飾する副詞</strong></li>
+		<li><input type="checkbox" id="checkbox11"><label for="checkbox11"></label><strong>第12課 疑問詞</strong></li>
+		<li><input type="checkbox" id="checkbox12"><label for="checkbox12"></label><strong>第13課 時刻</strong></li>
+		<li><input type="checkbox" id="checkbox13"><label for="checkbox13"></label><strong>第14課 日付・曜日</strong></li>
+		<li><input type="checkbox" id="checkbox14"><label for="checkbox14"></label><strong>第15課 完了を表わす助詞〈了〉1</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox15"><label for="checkbox15"></label><strong>第16課 完了を表わす助詞〈了〉2</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox16"><label for="checkbox16"></label><strong>第17課 反復疑問文</strong></li>
+		<li><input type="checkbox" id="checkbox17"><label for="checkbox17"></label><strong>第18課 前置詞</strong></li>
+		<li><input type="checkbox" id="checkbox18"><label for="checkbox18"></label><strong>第19課 時間補語</strong></li>
+		<li><input type="checkbox" id="checkbox19"><label for="checkbox19"></label><strong>第20課 経験を表わす助詞〈过〉</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox20"><label for="checkbox20"></label><strong>第21課 継続を表わす助詞〈着〉</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox21"><label for="checkbox21"></label><strong>第22課 動作の継続</strong></li>
+		<li><input type="checkbox" id="checkbox22"><label for="checkbox22"></label><strong>第23課 選択疑問文</strong></li>
+		<li><input type="checkbox" id="checkbox23"><label for="checkbox23"></label><strong>第24課 回数補語</strong></li>
+		<li><input type="checkbox" id="checkbox24"><label for="checkbox24"></label><strong>第25課 様態補語</strong></li>
+		<li><input type="checkbox" id="checkbox25"><label for="checkbox25"></label><strong>第26課 比較表現</strong></li>
+		<li><input type="checkbox" id="checkbox26"><label for="checkbox26"></label><strong>第27課 連動式文</strong></li>
+		<li><input type="checkbox" id="checkbox27"><label for="checkbox27"></label><strong>第28課 能願動詞1〈会〉〈能〉</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox28"><label for="checkbox28"></label><strong>第29課 能願動詞2（想）（要）</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox29"><label for="checkbox29"></label><strong>第30課 能願動詞3（应该）（必须）</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox30"><label for="checkbox30"></label><strong>第31課
+				能願動詞4（可以）（愿意）（肯）（敢）</strong></li>
+		<li><input type="checkbox" id="checkbox31"><label for="checkbox31"></label><strong>第32課 方向補語</strong></li>
+		<li><input type="checkbox" id="checkbox32"><label for="checkbox32"></label><strong>第33課 複合方向補語</strong></li>
+		<li><input type="checkbox" id="checkbox33"><label for="checkbox33"></label><strong>第34課 結果補語1</strong></li>
+		<li><input type="checkbox" id="checkbox34"><label for="checkbox34"></label><strong>第35課 結果補語2</strong></li>
+		<li><input type="checkbox" id="checkbox35"><label for="checkbox35"></label><strong>第36課 複合方向補語の派生的な用法1</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox36"><label for="checkbox36"></label><strong>第37課 複合方向補語の派生的な用法2</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox37"><label for="checkbox37"></label><strong>第38課 補語の可能形1</strong></li>
+		<li><input type="checkbox" id="checkbox38"><label for="checkbox38"></label><strong>第39課 補語の可能形2</strong></li>
+		<li><input type="checkbox" id="checkbox39"><label for="checkbox39"></label><strong>第40課 処置式文</strong></li>
+		<li><input type="checkbox" id="checkbox40"><label for="checkbox40"></label><strong>第41課 受身文</strong></li>
+		<li><input type="checkbox" id="checkbox41"><label for="checkbox41"></label><strong>第42課 使役文</strong></li>
+		<li><input type="checkbox" id="checkbox42"><label for="checkbox42"></label><strong>第43課 近接未来（要〜了）</strong></li>
+		<li><input type="checkbox" id="checkbox43"><label for="checkbox43"></label><strong>第44課 完了した状況の強調（是〜的）</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox44"><label for="checkbox44"></label><strong>第45課 存現文</strong></li>
+		<li><input type="checkbox" id="checkbox45"><label for="checkbox45"></label><strong>第46課 主述構造が文成分となる文</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox46"><label for="checkbox46"></label><strong>第47課 名詞の修飾語1</strong></li>
+		<li><input type="checkbox" id="checkbox47"><label for="checkbox47"></label><strong>第48課 名詞の修飾語2</strong></li>
+		<li><input type="checkbox" id="checkbox48"><label for="checkbox48"></label><strong>第49課 名詞の修飾語3</strong></li>
+		<li><input type="checkbox" id="checkbox49"><label for="checkbox49"></label><strong>第50課 形容詞の重ね型</strong></li>
+		<li><input type="checkbox" id="checkbox50"><label for="checkbox50"></label><strong>第51課 感嘆文</strong></li>
+		<li><input type="checkbox" id="checkbox51"><label for="checkbox51"></label><strong>第52課 文末の語気助詞</strong></li>
+		<li><input type="checkbox" id="checkbox52"><label for="checkbox52"></label><strong>第53課 目的語のくり上げ、状況語の位置</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox53"><label for="checkbox53"></label><strong>第54課 動詞の重ね型</strong></li>
+		<li><input type="checkbox" id="checkbox54"><label for="checkbox54"></label><strong>第55課 様数の表わし方</strong></li>
+		<li><input type="checkbox" id="checkbox55"><label for="checkbox55"></label><strong>第56課 並列文（又〜又〜）</strong></li>
+		<li><input type="checkbox" id="checkbox56"><label for="checkbox56"></label><strong>第57課 比例比較（越〜越〜）</strong></li>
+		<li><input type="checkbox" id="checkbox57"><label for="checkbox57"></label><strong>第58課 その他のくりかえし表現</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox58"><label for="checkbox58"></label><strong>第59課（就）と（才）の用法</strong></li>
+		<li><input type="checkbox" id="checkbox59"><label for="checkbox59"></label><strong>第60課（多）と（少）の用法</strong></li>
+		<li><input type="checkbox" id="checkbox60"><label for="checkbox60"></label><strong>第61課（倒）の用法</strong></li>
+		<li><input type="checkbox" id="checkbox61"><label for="checkbox61"></label><strong>第62課（有・没有）＋目的語＋動詞（句）</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox62"><label for="checkbox62"></label><strong>第63課（好）と（难）の用法</strong></li>
+		<li><input type="checkbox" id="checkbox63"><label for="checkbox63"></label><strong>第64課 反復の（又）と（再）</strong></li>
+		<li><input type="checkbox" id="checkbox64"><label for="checkbox64"></label><strong>第65課 強調表現1（〜也・都）（是）</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox65"><label for="checkbox65"></label><strong>第66課
+				強調表現2（連…都〜）（連…帯〜）</strong></li>
+		<li><input type="checkbox" id="checkbox66"><label
+				for="checkbox66"></label><strong>第67課（対〜（来说））と（跟〜一样）（像〜一样）</strong></li>
+		<li><input type="checkbox" id="checkbox67"><label for="checkbox67"></label><strong>第68課（可）の用法</strong></li>
+		<li><input type="checkbox" id="checkbox68"><label for="checkbox68"></label><strong>第69課（却）（并）（总）の用法</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox69"><label for="checkbox69"></label><strong>第70課（都）と（再）の用法</strong></li>
+		<li><input type="checkbox" id="checkbox70"><label for="checkbox70"></label><strong>第71課 連合複文―並列・選択・累加関係</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox71"><label for="checkbox71"></label><strong>第72課 主従複文―因果関係</strong></li>
+		<li><input type="checkbox" id="checkbox72"><label for="checkbox72"></label><strong>第73課 主従複文―逆接・譲歩関係</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox73"><label for="checkbox73"></label><strong>第74課 主従複文―仮定・条件関係</strong>
+		</li>
+		<li><input type="checkbox" id="checkbox74"><label for="checkbox74"></label><strong>第75課 その他の主従複文1</strong></li>
+		<li><input type="checkbox" id="checkbox75"><label for="checkbox75"></label><strong>第76課 その他の主従複文2</strong></li>
+		<li><input type="checkbox" id="checkbox76"><label for="checkbox76"></label><strong>第77課 疑問詞の反復</strong></li>
+		<li><input type="checkbox" id="checkbox77"><label for="checkbox77"></label><strong>第78課 二重否定</strong></li>
+		<li><input type="checkbox" id="checkbox78"><label for="checkbox78"></label><strong>第79課 反語</strong></li>
+		<li><input type="checkbox" id="checkbox79"><label for="checkbox79"></label><strong>第80課 複文に関する注意</strong></li>
+	</ul>
+	<hr>
+	<ul>
+		<li><input type="checkbox" id="checkbox80"><label for="checkbox80"></label><strong>会話1 こんにちは</strong></li>
+		<li><input type="checkbox" id="checkbox81"><label for="checkbox81"></label><strong>会話2 さようなら</strong></li>
+		<li><input type="checkbox" id="checkbox82"><label for="checkbox82"></label><strong>会話3 ありがとう</strong></li>
+		<li><input type="checkbox" id="checkbox83"><label for="checkbox83"></label><strong>会話4 すみません</strong></li>
+		<li><input type="checkbox" id="checkbox84"><label for="checkbox84"></label><strong>会話5 どうぞ～してください</strong></li>
+		<li><input type="checkbox" id="checkbox85"><label for="checkbox85"></label><strong>会話6 ようこそ</strong></li>
+		<li><input type="checkbox" id="checkbox86"><label for="checkbox86"></label><strong>会話7 お名前は</strong></li>
+		<li><input type="checkbox" id="checkbox87"><label for="checkbox87"></label><strong>会話8 どこの国の方ですか</strong></li>
+		<li><input type="checkbox" id="checkbox88"><label for="checkbox88"></label><strong>会話9 どこにお泊まりですか</strong></li>
+		<li><input type="checkbox" id="checkbox89"><label for="checkbox89"></label><strong>会話10 お仕事は忙しいですか</strong></li>
+		<li><input type="checkbox" id="checkbox90"><label for="checkbox90"></label><strong>会話11 ～へはどう行きますか</strong></li>
+		<li><input type="checkbox" id="checkbox91"><label for="checkbox91"></label><strong>会話12 これは何ですか</strong></li>
+		<li><input type="checkbox" id="checkbox92"><label for="checkbox92"></label><strong>会話13 いくらですか</strong></li>
+		<li><input type="checkbox" id="checkbox93"><label for="checkbox93"></label><strong>会話14 どうして、なぜ</strong></li>
+		<li><input type="checkbox" id="checkbox94"><label for="checkbox94"></label><strong>会話15 中国語を話せますか</strong></li>
+		<li><input type="checkbox" id="checkbox95"><label for="checkbox95"></label><strong>会話16 ゆっくり話して</strong></li>
+		<li><input type="checkbox" id="checkbox96"><label for="checkbox96"></label><strong>会話17 私は～したい</strong></li>
+		<li><input type="checkbox" id="checkbox97"><label for="checkbox97"></label><strong>会話18 もしもし～</strong></li>
+	</ul>
+	<hr>
+	<ul>
+		<li><input type="checkbox" id="checkbox98"><label for="checkbox98"></label><strong>読み物1 北京の四季</strong></li>
+		<li><input type="checkbox" id="checkbox99"><label for="checkbox99"></label><strong>読み物2 賢い曹冲</strong></li>
+		<li><input type="checkbox" id="checkbox100"><label for="checkbox100"></label><strong>読み物3 シルクロード</strong></li>
+		<li><input type="checkbox" id="checkbox101"><label for="checkbox101"></label><strong>読み物4 一通のメール</strong></li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

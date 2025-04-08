@@ -39,7 +39,7 @@
      (`</body>`手前に挿入)
      ```html
      <!-- チェックボックスへの変更を保存する為に追加 -->
-     <script src="../../../script/keep_checked.js"></script>
+     <script type="module" src="../../../script/keep_checked.js"></script>
      <!-- 外部サイトへのリンクを別タブで開く為に追加 -->
      <script src="../../../script/open_newtab.js"></script>
      ```

@@ -3,7 +3,7 @@
   
   html自動生成後、</ul> タグの後ろに
     <!-- チェックボックスへの変更を保存する為に追加 -->
-    <script src="../../../script/keep_checked.js"></script>
+    <script type="module" src="../../../script/keep_checked.js"></script>
   を追加
 */
 

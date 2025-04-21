@@ -43,6 +43,10 @@
      <!-- 外部サイトへのリンクを別タブで開く為に追加 -->
      <script src="../../../script/open_newtab.js"></script>
      ```
+   - 書影追加 (`<li><a href="">TITLE</a></li>`手前に挿入)
+     ```html
+     <img src="">
+     ```
 1. `index.html`に`checklist.md`へのリンクを追加
    ```html
    <ul>

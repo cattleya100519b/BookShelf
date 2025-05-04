@@ -1,0 +1,63 @@
+## Book
+- [対訳 フランス語で読む「星の王子さま」](https://www.hakusuisha.co.jp/book/b658598.html)
+- Purchase Date: 250427
+
+## CheckList
+- [ ] **1部 原書 I～XV 章（王子さまとの出会い／王子さまの星めぐり）**
+
+  - [ ] 1. Dédicace
+  - [ ] 2. Les dessins de serpents boas (1)
+  - [ ] 3. Les dessins de serpents boas (2)
+  - [ ] 4. Les dessins de serpents boas (3)
+  - [ ] 5. Dessine-moi un mouton… (1)
+  - [ ] 6. Dessine-moi un mouton… (2)
+  - [ ] 7. Dessine-moi un mouton… (3)
+  - [ ] 8. Dessine-moi un mouton… (4)
+  - [ ] 9. Tu viens donc d’une autre planète ?
+  - [ ] 10. Si j’essaie ici de le décrire…
+  - [ ] 11. Le jour des quarante-quatre fois
+  - [ ] 12. La guerre des moutons et des fleurs (1)
+  - [ ] 13. La guerre des moutons et des fleurs (2)
+  - [ ] 14. La guerre des moutons et des fleurs (3)
+  - [ ] 15. La guerre des moutons et des fleurs (4)
+  - [ ] 16. Une fleur orgueilleuse (1)
+  - [ ] 17. Une fleur orgueilleuse (2)
+  - [ ] 18. Une fleur orgueilleuse (3)
+  - [ ] 19. Une fleur orgueilleuse (4)
+  - [ ] 20. Une fleur orgueilleuse (5)
+  - [ ] 21. L’astéroïde du roi (1)
+  - [ ] 22. L’astéroïde du roi (2)
+  - [ ] 23. L’astéroïde du roi (3)
+  - [ ] 24. L’astéroïde du roi (4)
+  - [ ] 25. L’astéroïde du roi (5)
+
+- [ ] **2部 原書 XVI～XXVII 章（王子さまと地球／王子さまとの別れ）**
+
+  - [ ] 26. Un anneau couleur de lune (1)
+  - [ ] 27. Un anneau couleur de lune (2)
+  - [ ] 28. L’écho
+  - [ ] 29. Le jardin de roses
+  - [ ] 30. Qu’est-ce que signifie “apprivoiser” ? (1)
+  - [ ] 31. Qu’est-ce que signifie “apprivoiser” ? (2)
+  - [ ] 32. Qu’est-ce que signifie “apprivoiser” ? (3)
+  - [ ] 33. Qu’est-ce que signifie “apprivoiser” ? (4)
+  - [ ] 34. Qu’est-ce que signifie “apprivoiser” ? (5)
+  - [ ] 35. On ne peut pas mourir pour vous.
+  - [ ] 36. Voici mon secret
+  - [ ] 37. Un marchand de pilules
+  - [ ] 38. À la recherche d’un puits (1)
+  - [ ] 39. À la recherche d’un puits (2)
+  - [ ] 40. À la recherche d’un puits (3)
+  - [ ] 41. Le chant de la poulie (1)
+  - [ ] 42. Le chant de la poulie (2)
+  - [ ] 43. Le sentiment de l’irréparable (1)
+  - [ ] 44. Le sentiment de l’irréparable (2)
+  - [ ] 45. Le sentiment de l’irréparable (3)
+  - [ ] 46. Le sentiment de l’irréparable (4)
+  - [ ] 47. Je vais te faire un cadeau (1)
+  - [ ] 48. Je vais te faire un cadeau (2)
+  - [ ] 49. L’heure de la séparation (1)
+  - [ ] 50. L’heure de la séparation (2)
+  - [ ] 51. Et maintenant bien sûr, ça fait six ans déjà... (1)
+  - [ ] 52. Et maintenant bien sûr, ça fait six ans déjà... (2)
+  - [ ] 53. Épilogue - le plus beau et le plus triste paysage du monde

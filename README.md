@@ -3,8 +3,6 @@
 1. 書籍フォルダに`checklist.md`を新規作成
 1. `checklist.md`に以下をPaste
    ```markdown
-   # {TITLE}
-   
    ## Book
    - [Title](URL)
    - Purchase Date: YYMMDD (DRMfree)

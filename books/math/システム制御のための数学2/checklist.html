@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>システム制御のための数学 (2)</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h2 id="book">Book</h2>
+	<ul>
+		<img src="https://www.coronasha.co.jp/imgs/cover/9784339033083.jpg">
+		<li><a href="https://www.coronasha.co.jp/np/isbn/9784339033083/">システム制御のための数学(2)</a></li>
+		<li>Purchase Date: 250428 (kinoppy)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>1．集合と関数の基礎概念</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1.1　距離空間</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">1.2　距離空間での連続関数</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">1.3　完備距離空間・コンパクト集合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox4"><label for="checkbox4"></label><strong>2．複素数と複素関数</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">2.1　複素数と複素平面</label></li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">2.2　複素関数</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox7"><label for="checkbox7"></label><strong>3．曲線と線積分</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">3.1　線積分</label></li>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">3.2　閉曲線の回転数とホモトピー</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox10"><label for="checkbox10"></label><strong>4．コーシーの定理と級数展開</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">4.1　コーシーの定理</label></li>
+				<li><input type="checkbox" id="checkbox12"><label for="checkbox12">4.2　コーシーの積分公式</label></li>
+				<li><input type="checkbox" id="checkbox13"><label for="checkbox13">4.3　テイラー級数</label></li>
+				<li><input type="checkbox" id="checkbox14"><label for="checkbox14">4.4　コーシーの定理のその他の帰結</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox15"><label for="checkbox15"></label><strong>5．ローラン級数と孤立特異点</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">5.1　ローラン級数</label></li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">5.2　孤立特異点</label></li>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">5.3　留数の定理と偏角の原理</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox19"><label for="checkbox19"></label><strong>6．調和関数の基本性質</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox20"><label for="checkbox20">6.1　コーシー・リーマンの条件</label></li>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">6.2　調和関数とポアソン積分</label></li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">6.3　ポアソン積分公式からの帰結</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox23"><label for="checkbox23"></label><strong>7．フーリエ級数・変換とラプラス変換</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">7.1　フーリエ級数</label></li>
+				<li><input type="checkbox" id="checkbox25"><label for="checkbox25">7.2　フーリエ変換</label></li>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">7.3　ラプラス変換</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox27"><label for="checkbox27"></label><strong>8．ヒルベルト空間</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox28"><label for="checkbox28">8.1　ヒルベルト空間の定義</label></li>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">8.2　直交性</label></li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">8.3　ヒルベルト空間の線形汎関数</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox31"><label for="checkbox31"></label><strong>9．ヒルベルト空間上の線形作用素</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox32"><label for="checkbox32">9.1　有界な線形作用素</label></li>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">9.2　共役作用素</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">9.3　射影作用素</label></li>
+				<li><input type="checkbox" id="checkbox35"><label for="checkbox35">9.4　コンパクト作用素とスペクトル理論</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox36"><label for="checkbox36"></label><strong>10．バナッハ空間</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">10.1　バナッハ空間の定義</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">10.2　商空間</label></li>
+				<li><input type="checkbox" id="checkbox39"><label for="checkbox39">10.3　双対空間（有界線形汎関数）</label></li>
+				<li><input type="checkbox" id="checkbox40"><label for="checkbox40">10.4　ハーン・バナッハの定理とその帰結</label></li>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">10.5　弱位相</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox42"><label for="checkbox42"></label><strong>11．バナッハ空間上の線形作用素</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">11.1　線形作用素</label></li>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">11.2　開写像定理と一様有界性原理</label></li>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">11.3　双対作用素</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox46"><label for="checkbox46"></label><strong>12．バナッハ環</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">12.1　バナッハ環と具体例</label></li>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">12.2　可換なバナッハ環</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox49"><label for="checkbox49"></label><strong>付録A．位相空間・順序集合</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">A.1　位相空間</label></li>
+				<li><input type="checkbox" id="checkbox51"><label for="checkbox51">A.2　位相空間での連続関数</label></li>
+				<li><input type="checkbox" id="checkbox52"><label for="checkbox52">A.3　位相空間でのコンパクト集合</label></li>
+				<li><input type="checkbox" id="checkbox53"><label for="checkbox53">A.4　順序集合</label></li>
+			</ul>
+		</li>
+		<li><input type="checkbox" id="checkbox54"><label for="checkbox54"></label><strong>付録B．関数空間Lpと畳み込み</strong>
+			<ul>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">B.1　ルベーグ積分とLp空間</label></li>
+				<li><input type="checkbox" id="checkbox56"><label for="checkbox56">B.2　畳み込み</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script type="module" src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

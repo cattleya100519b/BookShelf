@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>ゲームエンジンアーキテクチャ 第3版</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h2 id="book">Book</h2>
+	<img src="https://img07.shop-pro.jp/PA01427/945/product/155938761.png?cmsp_timestamp=20201201162140">
+	<ul>
+		<li><a href="https://www.borndigital.co.jp/book/19115/">ゲームエンジンアーキテクチャ 第3版</a></li>
+		<li>Purchase Date: 250429 (kinoppy)</li>
+	</ul>
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li>
+			<p><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>1 イントロダクション</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1.1 典型的なゲーム開発チームの体制</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">1.2 ゲームとは何か？</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">1.3 ゲームエンジンとは</label></li>
+				<li><input type="checkbox" id="checkbox4"><label for="checkbox4">1.4 ジャンルごとのエンジンの違い</label></li>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">1.5 ゲームエンジンの調査</label></li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">1.6 ランタイムエンジンアーキテクチャ</label></li>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">1.7 ツールとアセットパイプライン</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox8"><label for="checkbox8"></label><strong>2 仕事用ツール</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">2.1 バージョン管理</label></li>
+				<li><input type="checkbox" id="checkbox10"><label for="checkbox10">2.2 コンパイラ、リンカ、IDE</label></li>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">2.3 プロファイリングツール</label></li>
+				<li><input type="checkbox" id="checkbox12"><label for="checkbox12">2.4 メモリーリークとメモリ破壊の検出</label></li>
+				<li><input type="checkbox" id="checkbox13"><label for="checkbox13">2.5 その他のツール</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox14"><label for="checkbox14"></label><strong>3
+					ゲームのためのソフトウェアエンジニアリングの基本</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">3.1 C++の復習とベストプラクティス</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">3.2 エラーの捕捉と処理</label></li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">3.3 データとコードとメモリ</label></li>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">3.4 コンピュータハードウェアの基本</label></li>
+				<li><input type="checkbox" id="checkbox19"><label for="checkbox19">3.5 メモリアーキテクチャ</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox20"><label for="checkbox20"></label><strong>4 並列・並行プログラミング</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">4.1 並行と並列の定義</label></li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">4.2 暗黙的な並列性</label></li>
+				<li><input type="checkbox" id="checkbox23"><label for="checkbox23">4.3 明示的な並列性</label></li>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">4.4 オペレーティングシステムの基本</label></li>
+				<li><input type="checkbox" id="checkbox25"><label for="checkbox25">4.5 並行プログラミング入門</label></li>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">4.6 スレッド同期プリミティブ</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">4.7 ロックベースの並行性における問題点</label></li>
+				<li><input type="checkbox" id="checkbox28"><label for="checkbox28">4.8 並行性の経験則</label></li>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">4.9 ロックフリー並行性</label></li>
+				<li><input type="checkbox" id="checkbox30"><label for="checkbox30">4.10 SIMDベクトルプロセッシング</label></li>
+				<li><input type="checkbox" id="checkbox31"><label for="checkbox31">4.11 GPGPU入門</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox32"><label for="checkbox32"></label><strong>5 ゲームのための3D数学</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">5.1 2Dで3Dの問題を解決する</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">5.2 ポイントとベクトル</label></li>
+				<li><input type="checkbox" id="checkbox35"><label for="checkbox35">5.3 行列</label></li>
+				<li><input type="checkbox" id="checkbox36"><label for="checkbox36">5.4 クォータニオン</label></li>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">5.5 回転表現の比較</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">5.6 その他の便利な数学オブジェクト</label></li>
+				<li><input type="checkbox" id="checkbox39"><label for="checkbox39">5.7 乱数生成</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox40"><label for="checkbox40"></label><strong>6 エンジンサポートシステム</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">6.1 サブシステムのスタートアップとシャットダウン</label>
+				</li>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">6.2 メモリ管理</label></li>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">6.3 コンテナ</label></li>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">6.4 文字列</label></li>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">6.5 エンジンのコンフィグレーション</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox46"><label for="checkbox46"></label><strong>7 リソースとファイルシステム</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">7.1 ファイルシステム</label></li>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">7.2 リソースマネージャ</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox49"><label for="checkbox49"></label><strong>8
+					ゲームループとリアルタイムシミュレーション</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">8.1 レンダリングループ</label></li>
+				<li><input type="checkbox" id="checkbox51"><label for="checkbox51">8.2 ゲームループ</label></li>
+				<li><input type="checkbox" id="checkbox52"><label for="checkbox52">8.3 ゲームループのアーキテクチャスタイル</label></li>
+				<li><input type="checkbox" id="checkbox53"><label for="checkbox53">8.4 抽象的な時間軸</label></li>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">8.5 時間の計測と処理</label></li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">8.6 マルチプロセッサのゲームループ</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox56"><label for="checkbox56"></label><strong>9
+					ヒューマンインターフェイスデバイス</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">9.1 ヒューマンインターフェイスデバイスの種類</label></li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">9.2 HID とのインターフェイス</label></li>
+				<li><input type="checkbox" id="checkbox59"><label for="checkbox59">9.3 入力の種類</label></li>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">9.4 出力の種類</label></li>
+				<li><input type="checkbox" id="checkbox61"><label for="checkbox61">9.5 ゲームエンジンの HID システム</label></li>
+				<li><input type="checkbox" id="checkbox62"><label for="checkbox62">9.6 ヒューマンインターフェイスデバイスの実際</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox63"><label for="checkbox63"></label><strong>10 デバッグおよび開発のツール</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox64"><label for="checkbox64">10.1 ロギングとトレース</label></li>
+				<li><input type="checkbox" id="checkbox65"><label for="checkbox65">10.2 デバッグ描画機能</label></li>
+				<li><input type="checkbox" id="checkbox66"><label for="checkbox66">10.3 ゲーム内メニュー</label></li>
+				<li><input type="checkbox" id="checkbox67"><label for="checkbox67">10.4 ゲーム内コントロール</label></li>
+				<li><input type="checkbox" id="checkbox68"><label for="checkbox68">10.5 カメラのデバッグとゲームの一時停止</label></li>
+				<li><input type="checkbox" id="checkbox69"><label for="checkbox69">10.6 チート</label></li>
+				<li><input type="checkbox" id="checkbox70"><label for="checkbox70">10.7 スクリーンショットと動画キャプチャ</label></li>
+				<li><input type="checkbox" id="checkbox71"><label for="checkbox71">10.8 ゲーム内プロファイリング</label></li>
+				<li><input type="checkbox" id="checkbox72"><label for="checkbox72">10.9 ゲーム内メモリ統計とリーク検出</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox73"><label for="checkbox73"></label><strong>11 レンダリングエンジン</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox74"><label for="checkbox74">11.1 深度バッファを利用した角形のラスタライズの原理</label>
+				</li>
+				<li><input type="checkbox" id="checkbox75"><label for="checkbox75">11.2 レンダリングパイプライン</label></li>
+				<li><input type="checkbox" id="checkbox76"><label for="checkbox76">11.3 高度なライティングとグローバルイルミネーション</label>
+				</li>
+				<li><input type="checkbox" id="checkbox77"><label for="checkbox77">11.4 マテリアルシステム</label></li>
+				<li><input type="checkbox" id="checkbox78"><label for="checkbox78">11.5 ジオメトリパイプラインとメッシュ処理</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox79"><label for="checkbox79"></label><strong>12 アニメーションシステム</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox80"><label for="checkbox80">12.1 キャラクターアニメーションの種類</label></li>
+				<li><input type="checkbox" id="checkbox81"><label for="checkbox81">12.2 スケルトン</label></li>
+				<li><input type="checkbox" id="checkbox82"><label for="checkbox82">12.3 ポーズ</label></li>
+				<li><input type="checkbox" id="checkbox83"><label for="checkbox83">12.4 クリップ</label></li>
+				<li><input type="checkbox" id="checkbox84"><label for="checkbox84">12.5 スキニングと行列パレットの生成</label></li>
+				<li><input type="checkbox" id="checkbox85"><label for="checkbox85">12.6 アニメーションブレンド</label></li>
+				<li><input type="checkbox" id="checkbox86"><label for="checkbox86">12.7 ポスト処理</label></li>
+				<li><input type="checkbox" id="checkbox87"><label for="checkbox87">12.8 圧縮のテクニック</label></li>
+				<li><input type="checkbox" id="checkbox88"><label for="checkbox88">12.9 アニメーションパイプライン</label></li>
+				<li><input type="checkbox" id="checkbox89"><label for="checkbox89">12.10 アクションステートマシン</label></li>
+				<li><input type="checkbox" id="checkbox90"><label for="checkbox90">12.11 制約（コンストレイン）</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox91"><label for="checkbox91"></label><strong>13 コリジョンと剛体力学</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox92"><label for="checkbox92">13.1 あなたのゲームに物理は必要ですか？</label></li>
+				<li><input type="checkbox" id="checkbox93"><label for="checkbox93">13.2 コリジョン/物理のミドルウェア</label></li>
+				<li><input type="checkbox" id="checkbox94"><label for="checkbox94">13.3 コリジョン検出システム</label></li>
+				<li><input type="checkbox" id="checkbox95"><label for="checkbox95">13.4 剛体力学</label></li>
+				<li><input type="checkbox" id="checkbox96"><label for="checkbox96">13.5 物理エンジンをゲームに組み込む</label></li>
+				<li><input type="checkbox" id="checkbox97"><label for="checkbox97">13.6 高度な物理的要素</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox98"><label for="checkbox98"></label><strong>14 オーディオ</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox99"><label for="checkbox99">14.1 音の物理学</label></li>
+				<li><input type="checkbox" id="checkbox100"><label for="checkbox100">14.2 音の数学</label></li>
+				<li><input type="checkbox" id="checkbox101"><label for="checkbox101">14.3 音の技術</label></li>
+				<li><input type="checkbox" id="checkbox102"><label for="checkbox102">14.4 3Dでのオーディオのレンダリング</label></li>
+				<li><input type="checkbox" id="checkbox103"><label for="checkbox103">14.5 オーディオエンジンのアーキテクチャ</label></li>
+				<li><input type="checkbox" id="checkbox104"><label for="checkbox104">14.6 ゲーム固有のオーディオ機能</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox105"><label for="checkbox105"></label><strong>15
+					ゲームプレイシステムの概要</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox106"><label for="checkbox106">15.1 ゲームワールドの構造</label></li>
+				<li><input type="checkbox" id="checkbox107"><label for="checkbox107">15.2 動的要素の実装：ゲームオブジェクト</label></li>
+				<li><input type="checkbox" id="checkbox108"><label for="checkbox108">15.3 データ駆動型</label></li>
+				<li><input type="checkbox" id="checkbox109"><label for="checkbox109">15.4 ゲームワールドエディタ</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox110"><label for="checkbox110"></label><strong>16
+					ランタイムのゲームプレイ基盤システム</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox111"><label for="checkbox111">16.1 ゲームプレイ基盤システムの構成要素</label></li>
+				<li><input type="checkbox" id="checkbox112"><label for="checkbox112">16.2 ランタイムオブジェクトモデルのアーキテクチャ</label>
+				</li>
+				<li><input type="checkbox" id="checkbox113"><label for="checkbox113">16.3 ワールドチャンクデータのフォーマット</label>
+				</li>
+				<li><input type="checkbox" id="checkbox114"><label for="checkbox114">16.4 ゲームワールドのロードとストリーミング</label>
+				</li>
+				<li><input type="checkbox" id="checkbox115"><label for="checkbox115">16.5 オブジェクト参照とワールドクエリー</label></li>
+				<li><input type="checkbox" id="checkbox116"><label for="checkbox116">16.6 ゲームオブジェクトのリアルタイムアップデート</label>
+				</li>
+				<li><input type="checkbox" id="checkbox117"><label for="checkbox117">16.7
+						並行性をゲームオブジェクトのアップデートに適用する</label></li>
+				<li><input type="checkbox" id="checkbox118"><label for="checkbox118">16.8 イベントとメッセージ通信</label></li>
+				<li><input type="checkbox" id="checkbox119"><label for="checkbox119">16.9 スクリプトによる記述</label></li>
+				<li><input type="checkbox" id="checkbox120"><label for="checkbox120">16.10 高レベルのゲームフローダイアグラム</label>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox121"><label for="checkbox121"></label><strong>17
+					まだやることがあるってこと？</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox122"><label for="checkbox122">17.1 これまでに取り上げた以外のエンジンシステム</label>
+				</li>
+				<li><input type="checkbox" id="checkbox123"><label for="checkbox123">17.2 ゲームプレイシステム</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script type="module" src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

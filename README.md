@@ -4,6 +4,8 @@
 1. `checklist.md`に以下をPaste
    ```markdown
    ## Book
+   <img src="">
+
    - [Title](URL)
    - Purchase Date: YYMMDD (DRMfree)
 
@@ -40,10 +42,6 @@
      <script type="module" src="../../../script/keep_checked.js"></script>
      <!-- 外部サイトへのリンクを別タブで開く為に追加 -->
      <script src="../../../script/open_newtab.js"></script>
-     ```
-   - 書影追加 (`<li><a href="">TITLE</a></li>`手前に挿入)
-     ```html
-     <img src="">
      ```
 1. `index.html`に`checklist.md`へのリンクを追加
    ```html

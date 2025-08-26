@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>現代数理統計学の基礎</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<!-- css適用の為追加 -->
+	<link rel="stylesheet" href="../../../style.css">
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h2 id="book">Book</h2>
+	<ul>
+		<li><a href="https://www.kyoritsu-pub.co.jp/book/b10003681.html">現代数理統計学の基礎</a></li>
+		<li>Purchase Date: YYMMDD (kinoppy)</li>
+	</ul>
+	<img src="https://hondana-image.s3.amazonaws.com/book/image/10003681/e0dc209d-f33c-491e-9e5c-472d37841dd3.jpg">
+	<h2 id="checklist">CheckList</h2>
+	<ul>
+		<li>
+			<p><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>第1章　確率</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox1"><label for="checkbox1">1.1　事象と確率</label></li>
+				<li><input type="checkbox" id="checkbox2"><label for="checkbox2">1.2　条件付き確率と事象の独立性</label></li>
+				<li><input type="checkbox" id="checkbox3"><label for="checkbox3">1.3　発展的事項</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox4"><label for="checkbox4"></label><strong>第2章　確率分布と期待値</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox5"><label for="checkbox5">2.1　確率変数</label></li>
+				<li><input type="checkbox" id="checkbox6"><label for="checkbox6">2.2　確率関数と確率密度関数</label></li>
+				<li><input type="checkbox" id="checkbox7"><label for="checkbox7">2.3　期待値</label></li>
+				<li><input type="checkbox" id="checkbox8"><label for="checkbox8">2.4　確率母関数，積率母関数，特性関数</label></li>
+				<li><input type="checkbox" id="checkbox9"><label for="checkbox9">2.5　変数変換</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox10"><label for="checkbox10"></label><strong>第3章　代表的な確率分布</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox11"><label for="checkbox11">3.1　離散確率分布</label></li>
+				<li><input type="checkbox" id="checkbox12"><label for="checkbox12">3.2　連続分布</label></li>
+				<li><input type="checkbox" id="checkbox13"><label for="checkbox13">3.3　発展的事項</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox14"><label for="checkbox14"></label><strong>第4章　多次元確率変数の分布</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox15"><label for="checkbox15">4.1　同時確率分布と周辺分布</label></li>
+				<li><input type="checkbox" id="checkbox16"><label for="checkbox16">4.2　条件付き確率分布と独立性</label></li>
+				<li><input type="checkbox" id="checkbox17"><label for="checkbox17">4.3　変数変換</label></li>
+				<li><input type="checkbox" id="checkbox18"><label for="checkbox18">4.4　多次元確率分布</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox19"><label for="checkbox19"></label><strong>第5章　標本分布とその近似</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox20"><label for="checkbox20">5.1　統計量と標本分布</label></li>
+				<li><input type="checkbox" id="checkbox21"><label for="checkbox21">5.2　正規母集団からの代表的な標本分布</label></li>
+				<li><input type="checkbox" id="checkbox22"><label for="checkbox22">5.3　確率変数と確率分布の収束</label></li>
+				<li><input type="checkbox" id="checkbox23"><label for="checkbox23">5.4　順序統計量</label></li>
+				<li><input type="checkbox" id="checkbox24"><label for="checkbox24">5.5　発展的事項</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox25"><label for="checkbox25"></label><strong>第6章　統計的推定</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox26"><label for="checkbox26">6.1　統計的推測</label></li>
+				<li><input type="checkbox" id="checkbox27"><label for="checkbox27">6.2　点推定量の導出方法</label></li>
+				<li><input type="checkbox" id="checkbox28"><label for="checkbox28">6.3　推定量の評価</label></li>
+				<li><input type="checkbox" id="checkbox29"><label for="checkbox29">6.4　発展的事項</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox30"><label for="checkbox30"></label><strong>第7章　統計的仮説検定</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox31"><label for="checkbox31">7.1　仮説検定の考え方</label></li>
+				<li><input type="checkbox" id="checkbox32"><label for="checkbox32">7.2　正規母集団に関する検定</label></li>
+				<li><input type="checkbox" id="checkbox33"><label for="checkbox33">7.3　検定統計量の導出方法</label></li>
+				<li><input type="checkbox" id="checkbox34"><label for="checkbox34">7.4　適合度検定</label></li>
+				<li><input type="checkbox" id="checkbox35"><label for="checkbox35">7.5　検定方式の評価</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox36"><label for="checkbox36"></label><strong>第8章　統計的区間推定</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox37"><label for="checkbox37">8.1　信頼区間の考え方</label></li>
+				<li><input type="checkbox" id="checkbox38"><label for="checkbox38">8.2　信頼区間の構成方法</label></li>
+				<li><input type="checkbox" id="checkbox39"><label for="checkbox39">8.3　発展的事項</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox40"><label for="checkbox40"></label><strong>第9章　線形回帰モデル</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox41"><label for="checkbox41">9.1　単回帰モデル</label></li>
+				<li><input type="checkbox" id="checkbox42"><label for="checkbox42">9.2　重回帰モデル</label></li>
+				<li><input type="checkbox" id="checkbox43"><label for="checkbox43">9.3　変数選択の規準</label></li>
+				<li><input type="checkbox" id="checkbox44"><label for="checkbox44">9.4　ロジスティック回帰モデルと一般化線形モデル</label>
+				</li>
+				<li><input type="checkbox" id="checkbox45"><label for="checkbox45">9.5　分散分析と変量効果モデル</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox46"><label for="checkbox46"></label><strong>第10章　リスク最適性の理論</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox47"><label for="checkbox47">10.1　リスク最適性の枠組み</label></li>
+				<li><input type="checkbox" id="checkbox48"><label for="checkbox48">10.2　最良不偏推定</label></li>
+				<li><input type="checkbox" id="checkbox49"><label for="checkbox49">10.3　最良共変（不変）推定</label></li>
+				<li><input type="checkbox" id="checkbox50"><label for="checkbox50">10.4　ベイズ推定</label></li>
+				<li><input type="checkbox" id="checkbox51"><label for="checkbox51">10.5　ミニマックス性と許容性の理論</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox52"><label for="checkbox52"></label><strong>第11章　計算統計学の方法</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox53"><label for="checkbox53">11.1　マルコフ連鎖モンテカルロ法</label></li>
+				<li><input type="checkbox" id="checkbox54"><label for="checkbox54">11.2　ブートストラップ</label></li>
+				<li><input type="checkbox" id="checkbox55"><label for="checkbox55">11.3　最尤推定値の計算法</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox56"><label for="checkbox56"></label><strong>第12章　発展的トピック：確率過程</strong>
+			</p>
+			<ul>
+				<li><input type="checkbox" id="checkbox57"><label for="checkbox57">12.1　ベルヌーイ過程とポアソン過程</label></li>
+				<li><input type="checkbox" id="checkbox58"><label for="checkbox58">12.2　ランダム・ウォーク</label></li>
+				<li><input type="checkbox" id="checkbox59"><label for="checkbox59">12.3　マルチンゲール</label></li>
+				<li><input type="checkbox" id="checkbox60"><label for="checkbox60">12.4　ブラウン運動</label></li>
+				<li><input type="checkbox" id="checkbox61"><label for="checkbox61">12.5　マルコフ連鎖</label></li>
+			</ul>
+		</li>
+		<li>
+			<p><input type="checkbox" id="checkbox62"><label for="checkbox62"></label><strong>付録</strong></p>
+			<ul>
+				<li><input type="checkbox" id="checkbox63"><label for="checkbox63">A.1　微積分と行列演算</label></li>
+				<li><input type="checkbox" id="checkbox64"><label for="checkbox64">A.2　主な確率分布と特性値</label></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- チェックボックスへの変更を保存する為に追加 -->
+	<script type="module" src="../../../script/keep_checked.js"></script>
+	<!-- 外部サイトへのリンクを別タブで開く為に追加 -->
+	<script src="../../../script/open_newtab.js"></script>
+</body>
+
+</html>

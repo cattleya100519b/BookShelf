@@ -4,10 +4,10 @@
 1. `checklist.md`に以下をPaste
    ```markdown
    ## Book
-   <img src="">
-
    - [Title](URL)
    - Purchase Date: YYMMDD (DRMfree)
+
+   <img src="">
 
    ## CheckList
 
